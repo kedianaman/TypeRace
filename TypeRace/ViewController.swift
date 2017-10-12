@@ -12,7 +12,12 @@ class ViewController: UIViewController, UITextFieldDelegate{
 
     @IBOutlet weak var excerptLabel: UILabel!
     @IBOutlet weak var inputTextField: UITextField!
-    var currentIndex = 0;
+    
+    var words = [String]() // maybe use this?
+    var currentCharacterIndex = 0
+    var currentWordIndex = 0
+    var incorrectInput = false
+    var incorrectInputIndex = 0
     
     enum InputType {
         case correct
@@ -26,6 +31,9 @@ class ViewController: UIViewController, UITextFieldDelegate{
         excerptLabel.attributedText = NSAttributedString(string: excerptLabel.text!)
         inputTextField.autocorrectionType = UITextAutocorrectionType.no
         inputTextField.delegate = self
+        words = excerptLabel.text!.components(separatedBy: " ")
+        shouldHighlightExcertWord(highlight: true, wordIndex: currentWordIndex, startCharacterIndex: currentCharacterIndex)
+        
     }
     
     
@@ -35,27 +43,51 @@ class ViewController: UIViewController, UITextFieldDelegate{
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let inputString = string
         
-        if (string.count != 0) {
-            let character = String(excerptLabel.text![currentIndex])
-            if (string == character) {
-                print("same at index: \(currentIndex)")
-                updateExcerptText(ofType: InputType.correct)
-                currentIndex = currentIndex + 1
-                if (string == " ") {
-                    textField.text = ""
+        if (inputString.count != 0) {
+            // mark as incorrect despite input
+            if (incorrectInput == true) {
+                if (currentCharacterIndex - incorrectInputIndex > 5) {
                     return false
                 }
-            } else {
-                print("different at index: \(currentIndex)")
                 updateExcerptText(ofType: InputType.incorrect)
-                currentIndex = currentIndex + 1
+                currentCharacterIndex = currentCharacterIndex + 1
                 return true
             }
-        } else {
             
-            print("delete at index: \(currentIndex)")
-            currentIndex = currentIndex - 1
+            let character = String(excerptLabel.text![currentCharacterIndex])
+             // Correct input -> Make letter blue
+            if (inputString == character) {
+                print("same at index: \(currentCharacterIndex)")
+                updateExcerptText(ofType: InputType.correct)
+                currentCharacterIndex = currentCharacterIndex + 1
+                // if user enters white space, empty out textfield.
+                if (inputString == " ") {
+                    textField.text = ""
+                    currentWordIndex = currentWordIndex + 1
+                    print(words[currentWordIndex])
+                    // highlight next word and dehighlight previous word
+                    shouldHighlightExcertWord(highlight: true, wordIndex: currentWordIndex, startCharacterIndex: currentCharacterIndex)
+                    let previousWordStartIndex = currentCharacterIndex - words[currentWordIndex - 1].count - 1
+                    shouldHighlightExcertWord(highlight: false, wordIndex: currentWordIndex - 1, startCharacterIndex: previousWordStartIndex)
+                    return false
+                }
+            // Incorrect input -> Highlight Red and mark incorrect
+            } else {
+                updateExcerptText(ofType: InputType.incorrect)
+                incorrectInput = true
+                incorrectInputIndex = currentCharacterIndex
+                currentCharacterIndex = currentCharacterIndex + 1
+                return true
+            }
+        // Backspace pressed.
+        } else {
+            print("delete at index: \(currentCharacterIndex)")
+            currentCharacterIndex = currentCharacterIndex - 1
+            if (currentCharacterIndex == incorrectInputIndex) {
+                incorrectInput = false 
+            }
             updateExcerptText(ofType: InputType.backspace)
             return true
         }
@@ -65,7 +97,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
     func updateExcerptText(ofType: InputType) {
         
         let attributedText = NSMutableAttributedString(attributedString: excerptLabel.attributedText!)
-        let colorRange = NSRange(location: currentIndex, length: 1)
+        let colorRange = NSRange(location: currentCharacterIndex, length: 1)
         switch ofType {
         case .correct:
             attributedText.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.blue, range: colorRange)
@@ -76,6 +108,18 @@ class ViewController: UIViewController, UITextFieldDelegate{
             attributedText.addAttribute(NSAttributedStringKey.backgroundColor, value: UIColor.clear, range: colorRange)
         }
         excerptLabel.attributedText = attributedText
+    }
+    
+    func shouldHighlightExcertWord(highlight: Bool, wordIndex: Int, startCharacterIndex: Int) {
+        
+        let attributedExcerptText = NSMutableAttributedString(attributedString: excerptLabel.attributedText!)
+        let currentWordLength = words[wordIndex].count
+        let currentRange = NSRange(location: startCharacterIndex, length: currentWordLength)
+        attributedExcerptText.addAttribute(NSAttributedStringKey.underlineStyle, value: highlight ? 1 : 0, range: currentRange)
+        let boldFont = UIFont.boldSystemFont(ofSize: 22)
+        let normalFont = UIFont.systemFont(ofSize: 20)
+        attributedExcerptText.addAttribute(NSAttributedStringKey.font, value: highlight ? boldFont : normalFont, range: currentRange)
+        excerptLabel.attributedText = attributedExcerptText
     }
 }
 
