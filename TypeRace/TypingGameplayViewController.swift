@@ -7,17 +7,32 @@
 //
 
 import UIKit
+import AudioToolbox
 
-class ViewController: UIViewController, UITextFieldDelegate{
+class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
 
+    @IBOutlet weak var wpmLabel: UILabel!
     @IBOutlet weak var excerptLabel: UILabel!
     @IBOutlet weak var inputTextField: UITextField!
+    @IBOutlet weak var timeLabel: UILabel!
     
     var words = [String]() // maybe use this?
     var currentCharacterIndex = 0
     var currentWordIndex = 0
     var incorrectInput = false
     var incorrectInputIndex = 0
+    var wordsPerMinute = 0 {
+        didSet {
+            wpmLabel.text = "WPM: \(wordsPerMinute)"
+        }
+    }
+    var seconds = 0 {
+        didSet {
+            timeLabel.text = "Time: \(seconds)"
+        }
+    }
+    var timer = Timer()
+
     
     enum InputType {
         case correct
@@ -36,10 +51,14 @@ class ViewController: UIViewController, UITextFieldDelegate{
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TypingGameplayViewController.updateCounter), userInfo: nil, repeats: true)
+    }
     
-    @IBAction func end(_ sender: Any) {
-        print("Editing ended");
-        resignFirstResponder()
+    @objc func updateCounter() {
+        seconds = seconds + 1
+        wordsPerMinute = (currentCharacterIndex/5 * 60)/(seconds)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -49,6 +68,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
             // mark as incorrect despite input
             if (incorrectInput == true) {
                 if (currentCharacterIndex - incorrectInputIndex > 5) {
+                    AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                     return false
                 }
                 updateExcerptText(ofType: InputType.incorrect)
@@ -61,7 +81,12 @@ class ViewController: UIViewController, UITextFieldDelegate{
             if (inputString == character) {
                 print("same at index: \(currentCharacterIndex)")
                 updateExcerptText(ofType: InputType.correct)
+                if (currentCharacterIndex == excerptLabel.text!.count - 1) {
+                    print("finished")
+                    return true
+                }
                 currentCharacterIndex = currentCharacterIndex + 1
+              
                 // if user enters white space, empty out textfield.
                 if (inputString == " ") {
                     textField.text = ""

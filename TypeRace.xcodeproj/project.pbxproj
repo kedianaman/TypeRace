@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EDB032681F8EE4D100C07D53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB032671F8EE4D100C07D53 /* AppDelegate.swift */; };
-		EDB0326A1F8EE4D100C07D53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB032691F8EE4D100C07D53 /* ViewController.swift */; };
+		EDB0326A1F8EE4D100C07D53 /* TypingGameplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB032691F8EE4D100C07D53 /* TypingGameplayViewController.swift */; };
 		EDB0326D1F8EE4D100C07D53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB0326B1F8EE4D100C07D53 /* Main.storyboard */; };
 		EDB0326F1F8EE4D100C07D53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDB0326E1F8EE4D100C07D53 /* Assets.xcassets */; };
 		EDB032721F8EE4D100C07D53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB032701F8EE4D100C07D53 /* LaunchScreen.storyboard */; };
@@ -36,7 +36,7 @@
 /* Begin PBXFileReference section */
 		EDB032641F8EE4D100C07D53 /* TypeRace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TypeRace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDB032671F8EE4D100C07D53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EDB032691F8EE4D100C07D53 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EDB032691F8EE4D100C07D53 /* TypingGameplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingGameplayViewController.swift; sourceTree = "<group>"; };
 		EDB0326C1F8EE4D100C07D53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EDB0326E1F8EE4D100C07D53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDB032711F8EE4D100C07D53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				EDB032671F8EE4D100C07D53 /* AppDelegate.swift */,
-				EDB032691F8EE4D100C07D53 /* ViewController.swift */,
+				EDB032691F8EE4D100C07D53 /* TypingGameplayViewController.swift */,
 				EDB0326B1F8EE4D100C07D53 /* Main.storyboard */,
 				EDB0326E1F8EE4D100C07D53 /* Assets.xcassets */,
 				EDB032701F8EE4D100C07D53 /* LaunchScreen.storyboard */,
@@ -259,7 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDB0326A1F8EE4D100C07D53 /* ViewController.swift in Sources */,
+				EDB0326A1F8EE4D100C07D53 /* TypingGameplayViewController.swift in Sources */,
 				EDB032681F8EE4D100C07D53 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
