@@ -10,6 +10,8 @@ import UIKit
 import AudioToolbox
 
 class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
+    
+    // MARK: IB Outlets
 
     @IBOutlet weak var wpmLabel: UILabel!
     @IBOutlet weak var excerptLabel: UILabel!
@@ -20,6 +22,8 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var progressBarBorder: UIView!
     @IBOutlet weak var progressBarIndicator: UIView!
     @IBOutlet weak var progressBarIndicatorWidth: NSLayoutConstraint!
+    
+    // MARK: Properties
     
     var words = [String]() // maybe use this?
     var currentCharacterIndex = 0 {
@@ -53,6 +57,7 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         case backspace
     }
     
+    // MARK: View Controller Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,38 +86,8 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         addShadow(view: inputTextContainerView)
     }
     
-    func updateProgressBar() {
-        
-        let progressBarWidth = CGFloat(Double(self.currentCharacterIndex)/Double(self.excerptLabel!.text!.count)) * self.progressBarBorder.frame.width
-        UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.2, options: .curveEaseInOut, animations: {
-            self.progressBarIndicatorWidth.constant = progressBarWidth
-            self.progressBarIndicator.frame = CGRect(origin: self.progressBarIndicator.frame.origin, size: CGSize(width: progressBarWidth, height: self.progressBarIndicator.frame.height))
-        }, completion: nil)
-    }
-    
-    func updateTextField(incorrect: Bool) {
-        UIView.transition(with: inputTextContainerView, duration: 0.3, options: UIViewAnimationOptions.transitionCrossDissolve, animations: {
-            self.inputTextContainerView.backgroundColor = incorrect ? UIColor.red : UIColor.white
-            self.inputTextField.textColor = incorrect ? UIColor.white : UIColor.black
-        }, completion: nil)
-        
-    }
-    
-    @objc func updateCounter() {
-        seconds = seconds + 1
-        wordsPerMinute = (currentCharacterIndex/5 * 60)/(seconds)
-    }
-    
-    func addShadow(view: UIView) {
-        let shadowPath = UIBezierPath(rect: view.bounds)
-        view.layer.masksToBounds = false
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOffset = CGSize(width: 0, height: 0.5)
-        view.layer.shadowOpacity = 0.2
-        view.layer.shadowRadius = 10
-        view.layer.shadowPath = shadowPath.cgPath
-    }
-    
+    // MARK: Text Field Delegate
+
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let inputString = string
         
@@ -142,6 +117,7 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
                 // if user enters white space, empty out textfield.
                 if (inputString == " ") {
                     textField.text = ""
+                    textField.keyboardType = UIKeyboardType.alphabet
                     currentWordIndex = currentWordIndex + 1
                     print(words[currentWordIndex])
                     // highlight next word and dehighlight previous word
@@ -153,6 +129,7 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
             // Incorrect input -> Highlight Red and mark incorrect
             } else {
                 updateExcerptText(ofType: InputType.incorrect)
+                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                 incorrectInput = true
                 incorrectInputIndex = currentCharacterIndex
                 currentCharacterIndex = currentCharacterIndex + 1
@@ -160,6 +137,7 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
             }
         // Backspace pressed.
         } else {
+            print("range: \(range)")
             print("delete at index: \(currentCharacterIndex)")
             currentCharacterIndex = currentCharacterIndex - 1
             if (currentCharacterIndex == incorrectInputIndex) {
@@ -171,6 +149,40 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         return true
     }
     
+    // MARK: Helper Methods
+    
+    func updateProgressBar() {
+        
+        let progressBarWidth = CGFloat(Double(self.currentCharacterIndex)/Double(self.excerptLabel!.text!.count)) * self.progressBarBorder.frame.width
+        UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.2, options: .curveEaseInOut, animations: {
+            self.progressBarIndicatorWidth.constant = progressBarWidth
+            self.progressBarIndicator.frame = CGRect(origin: self.progressBarIndicator.frame.origin, size: CGSize(width: progressBarWidth, height: self.progressBarIndicator.frame.height))
+        }, completion: nil)
+    }
+    
+    func updateTextField(incorrect: Bool) {
+        UIView.transition(with: inputTextContainerView, duration: 0.2, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+            self.inputTextContainerView.backgroundColor = incorrect ? UIColor.race_redColor() : UIColor.white
+            self.inputTextField.textColor = incorrect ? UIColor.white : UIColor.black
+        }, completion: nil)
+    }
+    
+    @objc func updateCounter() {
+        seconds = seconds + 1
+        wordsPerMinute = (currentCharacterIndex/5 * 60)/(seconds)
+    }
+    
+    func addShadow(view: UIView) {
+        let shadowPath = UIBezierPath(rect: view.bounds)
+        view.layer.masksToBounds = false
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 0.5)
+        view.layer.shadowOpacity = 0.2
+        view.layer.shadowRadius = 10
+        view.layer.shadowPath = shadowPath.cgPath
+    }
+    
+    
     func updateExcerptText(ofType: InputType) {
         
         let attributedText = NSMutableAttributedString(attributedString: excerptLabel.attributedText!)
@@ -179,7 +191,7 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         case .correct:
             attributedText.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.race_blueColor(), range: colorRange)
         case .incorrect:
-            attributedText.addAttribute(NSAttributedStringKey.backgroundColor, value: UIColor.red, range: colorRange)
+            attributedText.addAttribute(NSAttributedStringKey.backgroundColor, value: UIColor.race_redColorHighlight(), range: colorRange)
         case .backspace:
             attributedText.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.black, range: colorRange)
             attributedText.addAttribute(NSAttributedStringKey.backgroundColor, value: UIColor.clear, range: colorRange)
@@ -199,6 +211,8 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         excerptLabel.attributedText = attributedExcerptText
     }
 }
+
+// MARK: String extension
 
 extension String {
     

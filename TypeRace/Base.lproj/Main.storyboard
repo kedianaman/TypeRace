@@ -19,12 +19,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKF-Oa-q9P">
-                                <rect key="frame" x="25" y="183.5" width="325" height="132.5"/>
+                                <rect key="frame" x="25" y="276.5" width="325" height="39.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyv-WW-RpL">
-                                        <rect key="frame" x="8" y="8" width="309" height="116.5"/>
+                                        <rect key="frame" x="8" y="8" width="309" height="23.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <string key="text">Perhaps it might be better, Mr. President, if you were more concerned with the American People than with your image in the history books.</string>
+                                        <string key="text">Hi Namthai. This is Sophia Watson. I think you should come talk to me because I am the prettiest girl you will ever meet. Also, I think you should consider yourself lucky to have Naman as a roommate. </string>
                                         <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

@@ -15,6 +15,14 @@ extension UIColor {
         return UIColor(red: (62/255.0), green: (136/255.0), blue: (248/255.0), alpha: 1.0)
     }
     
+    class func race_redColor() -> UIColor {
+        return UIColor(red: (255/255.0), green: (59/255.0), blue: (48/255.0), alpha: 1.0)
+    }
+    
+    class func race_redColorHighlight() -> UIColor {
+        return UIColor(red: (255/255.0), green: (59/255.0), blue: (48/255.0), alpha: 0.6)
+    }
+    
 }
 
 extension CGGradient {
