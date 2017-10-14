@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED786DAD1F9192D800AB345F /* TypeRaceColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED786DAC1F9192D800AB345F /* TypeRaceColors.swift */; };
 		EDB032681F8EE4D100C07D53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB032671F8EE4D100C07D53 /* AppDelegate.swift */; };
 		EDB0326A1F8EE4D100C07D53 /* TypingGameplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB032691F8EE4D100C07D53 /* TypingGameplayViewController.swift */; };
 		EDB0326D1F8EE4D100C07D53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB0326B1F8EE4D100C07D53 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED786DAC1F9192D800AB345F /* TypeRaceColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeRaceColors.swift; sourceTree = "<group>"; };
 		EDB032641F8EE4D100C07D53 /* TypeRace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TypeRace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDB032671F8EE4D100C07D53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDB032691F8EE4D100C07D53 /* TypingGameplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingGameplayViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				EDB032671F8EE4D100C07D53 /* AppDelegate.swift */,
 				EDB032691F8EE4D100C07D53 /* TypingGameplayViewController.swift */,
+				ED786DAC1F9192D800AB345F /* TypeRaceColors.swift */,
 				EDB0326B1F8EE4D100C07D53 /* Main.storyboard */,
 				EDB0326E1F8EE4D100C07D53 /* Assets.xcassets */,
 				EDB032701F8EE4D100C07D53 /* LaunchScreen.storyboard */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDB0326A1F8EE4D100C07D53 /* TypingGameplayViewController.swift in Sources */,
+				ED786DAD1F9192D800AB345F /* TypeRaceColors.swift in Sources */,
 				EDB032681F8EE4D100C07D53 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

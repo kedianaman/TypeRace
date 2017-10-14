@@ -13,13 +13,26 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
 
     @IBOutlet weak var wpmLabel: UILabel!
     @IBOutlet weak var excerptLabel: UILabel!
+    @IBOutlet weak var excerptLabelContainerView: UIView!
     @IBOutlet weak var inputTextField: UITextField!
+    @IBOutlet weak var inputTextContainerView: UIView!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var progressBarBorder: UIView!
+    @IBOutlet weak var progressBarIndicator: UIView!
+    @IBOutlet weak var progressBarIndicatorWidth: NSLayoutConstraint!
     
     var words = [String]() // maybe use this?
-    var currentCharacterIndex = 0
+    var currentCharacterIndex = 0 {
+        didSet {
+            updateProgressBar()
+        }
+    }
     var currentWordIndex = 0
-    var incorrectInput = false
+    var incorrectInput = false {
+        didSet {
+            updateTextField(incorrect: incorrectInput)
+        }
+    }
     var incorrectInputIndex = 0
     var wordsPerMinute = 0 {
         didSet {
@@ -43,22 +56,61 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        excerptLabel.attributedText = NSAttributedString(string: excerptLabel.text!)
-        inputTextField.autocorrectionType = UITextAutocorrectionType.no
         inputTextField.delegate = self
         words = excerptLabel.text!.components(separatedBy: " ")
-        shouldHighlightExcertWord(highlight: true, wordIndex: currentWordIndex, startCharacterIndex: currentCharacterIndex)
-        
+        initialSetup()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TypingGameplayViewController.updateCounter), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TypingGameplayViewController.updateCounter), userInfo: nil, repeats: true)        
+    }
+    
+    func initialSetup() {
+        excerptLabel.attributedText = NSAttributedString(string: excerptLabel.text!)
+        inputTextField.autocorrectionType = UITextAutocorrectionType.no
+        shouldHighlightExcertWord(highlight: true, wordIndex: currentWordIndex, startCharacterIndex: currentCharacterIndex)
+        view.backgroundColor = UIColor.clear
+        let backgroundLayer = CGGradient.race_bgGradient()
+        backgroundLayer.frame = view.frame
+        view.layer.insertSublayer(backgroundLayer, at: 0)
+        progressBarBorder.layer.cornerRadius = 15
+        progressBarIndicator.layer.cornerRadius = 15
+        progressBarIndicator.backgroundColor = UIColor.race_blueColor()
+        addShadow(view: excerptLabelContainerView)
+        addShadow(view: inputTextContainerView)
+    }
+    
+    func updateProgressBar() {
+        
+        let progressBarWidth = CGFloat(Double(self.currentCharacterIndex)/Double(self.excerptLabel!.text!.count)) * self.progressBarBorder.frame.width
+        UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.2, options: .curveEaseInOut, animations: {
+            self.progressBarIndicatorWidth.constant = progressBarWidth
+            self.progressBarIndicator.frame = CGRect(origin: self.progressBarIndicator.frame.origin, size: CGSize(width: progressBarWidth, height: self.progressBarIndicator.frame.height))
+        }, completion: nil)
+    }
+    
+    func updateTextField(incorrect: Bool) {
+        UIView.transition(with: inputTextContainerView, duration: 0.3, options: UIViewAnimationOptions.transitionCrossDissolve, animations: {
+            self.inputTextContainerView.backgroundColor = incorrect ? UIColor.red : UIColor.white
+            self.inputTextField.textColor = incorrect ? UIColor.white : UIColor.black
+        }, completion: nil)
+        
     }
     
     @objc func updateCounter() {
         seconds = seconds + 1
         wordsPerMinute = (currentCharacterIndex/5 * 60)/(seconds)
+    }
+    
+    func addShadow(view: UIView) {
+        let shadowPath = UIBezierPath(rect: view.bounds)
+        view.layer.masksToBounds = false
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 0.5)
+        view.layer.shadowOpacity = 0.2
+        view.layer.shadowRadius = 10
+        view.layer.shadowPath = shadowPath.cgPath
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -125,7 +177,7 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         let colorRange = NSRange(location: currentCharacterIndex, length: 1)
         switch ofType {
         case .correct:
-            attributedText.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.blue, range: colorRange)
+            attributedText.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.race_blueColor(), range: colorRange)
         case .incorrect:
             attributedText.addAttribute(NSAttributedStringKey.backgroundColor, value: UIColor.red, range: colorRange)
         case .backspace:
@@ -141,7 +193,7 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         let currentWordLength = words[wordIndex].count
         let currentRange = NSRange(location: startCharacterIndex, length: currentWordLength)
         attributedExcerptText.addAttribute(NSAttributedStringKey.underlineStyle, value: highlight ? 1 : 0, range: currentRange)
-        let boldFont = UIFont.boldSystemFont(ofSize: 22)
+        let boldFont = UIFont.boldSystemFont(ofSize: 20)
         let normalFont = UIFont.systemFont(ofSize: 20)
         attributedExcerptText.addAttribute(NSAttributedStringKey.font, value: highlight ? boldFont : normalFont, range: currentRange)
         excerptLabel.attributedText = attributedExcerptText
@@ -154,12 +206,11 @@ extension String {
         return self[index(startIndex, offsetBy: i)]
     }
     
-  
-
     subscript (r: Range<Int>) -> String {
         let start = index(startIndex, offsetBy: r.lowerBound)
         let end = index(startIndex, offsetBy: r.upperBound)
         return String(self[Range(start ..< end)])
     }
 }
+
 
