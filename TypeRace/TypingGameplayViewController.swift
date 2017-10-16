@@ -49,6 +49,8 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         }
     }
     var timer = Timer()
+    var randomQuote: Quote!
+    var quotes = Quotes()
 
     
     enum InputType {
@@ -56,6 +58,7 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         case incorrect
         case backspace
     }
+    
     
     // MARK: View Controller Lifecycle
     
@@ -110,6 +113,8 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
                 updateExcerptText(ofType: InputType.correct)
                 if (currentCharacterIndex == excerptLabel.text!.count - 1) {
                     print("finished")
+                    let resultsVC = self.storyboard?.instantiateViewController(withIdentifier: "ResultVCID") as! ResultsViewController
+                    self.present(resultsVC, animated: true, completion: nil)
                     return true
                 }
                 currentCharacterIndex = currentCharacterIndex + 1
@@ -117,7 +122,7 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
                 // if user enters white space, empty out textfield.
                 if (inputString == " ") {
                     textField.text = ""
-                    textField.keyboardType = UIKeyboardType.alphabet
+                    // Try to make it go back to alphabets here
                     currentWordIndex = currentWordIndex + 1
                     print(words[currentWordIndex])
                     // highlight next word and dehighlight previous word
@@ -209,6 +214,15 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         let normalFont = UIFont.systemFont(ofSize: 20)
         attributedExcerptText.addAttribute(NSAttributedStringKey.font, value: highlight ? boldFont : normalFont, range: currentRange)
         excerptLabel.attributedText = attributedExcerptText
+    }
+    
+    func resetGame() {
+        currentWordIndex = 0
+        currentCharacterIndex = 0
+        incorrectInput = false
+        incorrectInputIndex = 0
+        wordsPerMinute = 0
+        seconds = 0
     }
 }
 

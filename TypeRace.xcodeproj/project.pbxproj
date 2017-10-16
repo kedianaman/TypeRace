@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED10610B1F934CBD00F44A2B /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED10610A1F934CBD00F44A2B /* Quotes.swift */; };
+		ED6CFEB11F943D8300D22641 /* quotes.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6CFEB01F94389D00D22641 /* quotes.json */; };
+		ED7432B51F948A22007F977F /* samplequotes.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC3A4EC1F9489CA0021C867 /* samplequotes.json */; };
+		ED7432B91F949DFB007F977F /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7432B81F949DFB007F977F /* ResultsViewController.swift */; };
 		ED786DAD1F9192D800AB345F /* TypeRaceColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED786DAC1F9192D800AB345F /* TypeRaceColors.swift */; };
 		EDB032681F8EE4D100C07D53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB032671F8EE4D100C07D53 /* AppDelegate.swift */; };
 		EDB0326A1F8EE4D100C07D53 /* TypingGameplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB032691F8EE4D100C07D53 /* TypingGameplayViewController.swift */; };
@@ -35,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED10610A1F934CBD00F44A2B /* Quotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
+		ED6CFEB01F94389D00D22641 /* quotes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = quotes.json; sourceTree = "<group>"; };
+		ED7432B81F949DFB007F977F /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		ED786DAC1F9192D800AB345F /* TypeRaceColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeRaceColors.swift; sourceTree = "<group>"; };
 		EDB032641F8EE4D100C07D53 /* TypeRace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TypeRace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDB032671F8EE4D100C07D53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +56,7 @@
 		EDB032831F8EE4D100C07D53 /* TypeRaceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TypeRaceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDB032871F8EE4D100C07D53 /* TypeRaceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeRaceUITests.swift; sourceTree = "<group>"; };
 		EDB032891F8EE4D100C07D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDC3A4EC1F9489CA0021C867 /* samplequotes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = samplequotes.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +84,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED7432B61F94984C007F977F /* Quote Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED10610A1F934CBD00F44A2B /* Quotes.swift */,
+				ED6CFEB01F94389D00D22641 /* quotes.json */,
+				EDC3A4EC1F9489CA0021C867 /* samplequotes.json */,
+			);
+			name = "Quote Model";
+			sourceTree = "<group>";
+		};
+		ED7432B71F949871007F977F /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				EDB032671F8EE4D100C07D53 /* AppDelegate.swift */,
+				EDB032701F8EE4D100C07D53 /* LaunchScreen.storyboard */,
+				EDB032731F8EE4D100C07D53 /* Info.plist */,
+			);
+			name = Extra;
+			sourceTree = "<group>";
+		};
 		EDB0325B1F8EE4D100C07D53 = {
 			isa = PBXGroup;
 			children = (
@@ -99,13 +127,13 @@
 		EDB032661F8EE4D100C07D53 /* TypeRace */ = {
 			isa = PBXGroup;
 			children = (
-				EDB032671F8EE4D100C07D53 /* AppDelegate.swift */,
-				EDB032691F8EE4D100C07D53 /* TypingGameplayViewController.swift */,
-				ED786DAC1F9192D800AB345F /* TypeRaceColors.swift */,
 				EDB0326B1F8EE4D100C07D53 /* Main.storyboard */,
+				EDB032691F8EE4D100C07D53 /* TypingGameplayViewController.swift */,
+				ED7432B81F949DFB007F977F /* ResultsViewController.swift */,
+				ED786DAC1F9192D800AB345F /* TypeRaceColors.swift */,
+				ED7432B61F94984C007F977F /* Quote Model */,
 				EDB0326E1F8EE4D100C07D53 /* Assets.xcassets */,
-				EDB032701F8EE4D100C07D53 /* LaunchScreen.storyboard */,
-				EDB032731F8EE4D100C07D53 /* Info.plist */,
+				ED7432B71F949871007F977F /* Extra */,
 			);
 			path = TypeRace;
 			sourceTree = "<group>";
@@ -235,6 +263,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED6CFEB11F943D8300D22641 /* quotes.json in Resources */,
+				ED7432B51F948A22007F977F /* samplequotes.json in Resources */,
 				EDB032721F8EE4D100C07D53 /* LaunchScreen.storyboard in Resources */,
 				EDB0326F1F8EE4D100C07D53 /* Assets.xcassets in Resources */,
 				EDB0326D1F8EE4D100C07D53 /* Main.storyboard in Resources */,
@@ -262,8 +292,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED10610B1F934CBD00F44A2B /* Quotes.swift in Sources */,
 				EDB0326A1F8EE4D100C07D53 /* TypingGameplayViewController.swift in Sources */,
 				ED786DAD1F9192D800AB345F /* TypeRaceColors.swift in Sources */,
+				ED7432B91F949DFB007F977F /* ResultsViewController.swift in Sources */,
 				EDB032681F8EE4D100C07D53 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

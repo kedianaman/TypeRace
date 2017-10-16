@@ -19,12 +19,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKF-Oa-q9P">
-                                <rect key="frame" x="25" y="276.5" width="325" height="39.5"/>
+                                <rect key="frame" x="25" y="136.5" width="325" height="179.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyv-WW-RpL">
-                                        <rect key="frame" x="8" y="8" width="309" height="23.5"/>
+                                        <rect key="frame" x="8" y="8" width="309" height="163.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <string key="text">Hi Namthai. This is Sophia Watson. I think you should come talk to me because I am the prettiest girl you will ever meet. Also, I think you should consider yourself lucky to have Naman as a roommate. </string>
+                                        <string key="text">Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. And the only way to do great work is to love what you do. If you haven't found it yet, keep looking.</string>
                                         <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -78,7 +78,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cvk-Lf-jSw">
                                 <rect key="frame" x="25" y="88" width="0.0" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.32230444652380319" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.47934520244598389" blue="0.99908632040023804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="5Op-8g-DAC"/>
                                     <constraint firstAttribute="width" id="6FC-ZU-kny"/>
@@ -128,20 +128,77 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
-        <!--View Controller-->
+        <!--Results View Controller-->
         <scene sceneID="xRQ-DM-Mn5">
             <objects>
-                <viewController id="hO1-hV-1yO" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultVCID" id="hO1-hV-1yO" customClass="ResultsViewController" customModule="TypeRace" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wgR-3a-3A9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2nO-l6-avC">
+                                <rect key="frame" x="25" y="318" width="0.0" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.32230444650000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" id="5cl-6K-hQX"/>
+                                    <constraint firstAttribute="height" constant="30" id="Ouc-br-dTg"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ngh-ei-ymQ">
+                                <rect key="frame" x="25" y="88" width="325" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47934520244598389" blue="0.99908632040023804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="c2A-dF-1iI"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Y2J-Mu-9W1">
+                                <rect key="frame" x="25" y="197.5" width="325" height="120"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWn-1H-Fr7">
+                                        <rect key="frame" x="0.0" y="0.0" width="108.5" height="120"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WPM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtH-BT-x0O">
+                                        <rect key="frame" x="108.5" y="0.0" width="108" height="120"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G2n-5g-ckl">
+                                        <rect key="frame" x="216.5" y="0.0" width="108.5" height="120"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="Xbj-de-eJa"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Y2J-Mu-9W1" firstAttribute="leading" secondItem="Uj8-Dr-UDB" secondAttribute="leading" constant="25" id="4HW-dG-gsG"/>
+                            <constraint firstItem="ngh-ei-ymQ" firstAttribute="leading" secondItem="Uj8-Dr-UDB" secondAttribute="leading" constant="25" id="BBN-Uv-uZL"/>
+                            <constraint firstItem="Uj8-Dr-UDB" firstAttribute="trailing" secondItem="Y2J-Mu-9W1" secondAttribute="trailing" constant="25" id="BGp-rD-gFU"/>
+                            <constraint firstItem="Uj8-Dr-UDB" firstAttribute="trailing" secondItem="2nO-l6-avC" secondAttribute="trailing" constant="350" id="LCj-3p-LM5"/>
+                            <constraint firstItem="Y2J-Mu-9W1" firstAttribute="centerY" secondItem="Uj8-Dr-UDB" secondAttribute="centerY" multiplier="0.75" id="PAT-V3-tS1"/>
+                            <constraint firstItem="ngh-ei-ymQ" firstAttribute="centerY" secondItem="Uj8-Dr-UDB" secondAttribute="centerY" multiplier="0.3" id="kxe-xr-nD1"/>
+                            <constraint firstItem="Uj8-Dr-UDB" firstAttribute="trailing" secondItem="ngh-ei-ymQ" secondAttribute="trailing" constant="25" id="xNx-1s-RgY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Uj8-Dr-UDB"/>
                     </view>
+                    <connections>
+                        <outlet property="accuracyLabel" destination="G2n-5g-ckl" id="PgD-m9-Hv9"/>
+                        <outlet property="timeLabel" destination="fWn-1H-Fr7" id="Ocf-dM-hzI"/>
+                        <outlet property="wpmLabel" destination="jtH-BT-x0O" id="7an-j9-2u6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wTa-nQ-fgc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="881" y="132"/>
+            <point key="canvasLocation" x="880.79999999999995" y="131.78410794602701"/>
         </scene>
     </scenes>
 </document>
