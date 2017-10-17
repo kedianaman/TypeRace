@@ -50,7 +50,11 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
     }
     var timer = Timer()
     var quotes: Quotes!
-    var quote: Quote!
+    var quote: Quote! {
+        didSet {
+            excerptLabel.text = quote.quoteText
+        }
+    }
 
     
     enum InputType {
@@ -101,7 +105,8 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         if (inputString.count != 0) {
             // mark as incorrect despite input
             if (incorrectInput == true) {
-                if (currentCharacterIndex - incorrectInputIndex > 5) {
+                
+                if (currentCharacterIndex - incorrectInputIndex > 5) || (currentCharacterIndex == excerptLabel.text!.count) {
                     AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                     return false
                 }
@@ -117,8 +122,9 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
                 updateExcerptText(ofType: InputType.correct)
                 if (currentCharacterIndex == excerptLabel.text!.count - 1) {
                     print("finished")
-                    self.performSegue(withIdentifier: "GameToResultsSegueID", sender: nil)
-                    return true
+                    resetGame()
+//                    self.performSegue(withIdentifier: "GameToResultsSegueID", sender: nil)
+                    return false
                 }
                 currentCharacterIndex = currentCharacterIndex + 1
               
@@ -140,6 +146,7 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
                 AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                 incorrectInput = true
                 incorrectInputIndex = currentCharacterIndex
+                print("different at index: \(currentCharacterIndex)")
                 currentCharacterIndex = currentCharacterIndex + 1
                 return true
             }
@@ -235,6 +242,9 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         incorrectInputIndex = 0
         wordsPerMinute = 0
         seconds = 0
+        quote = quotes.getRandomQuote()
+        words = quote.quoteText.components(separatedBy: " ")
+        inputTextField.text = ""
     }
 }
 
