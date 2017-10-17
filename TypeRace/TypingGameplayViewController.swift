@@ -77,10 +77,16 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TypingGameplayViewController.updateCounter), userInfo: nil, repeats: true)
         addShadow(view: excerptLabelContainerView)
         addShadow(view: inputTextContainerView)
     }
+    
+    @IBAction func unwindToGameViewController(segue:UIStoryboardSegue) {
+        resetGame()
+    }
+
     
     func initialSetup() {
 //        excerptLabel.attributedText = NSAttributedString(string: excerptLabel.text!)
@@ -88,10 +94,7 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         words = excerptLabel.text!.components(separatedBy: " ")
         inputTextField.autocorrectionType = UITextAutocorrectionType.no
         shouldHighlightExcertWord(highlight: true, wordIndex: currentWordIndex, startCharacterIndex: currentCharacterIndex)
-        view.backgroundColor = UIColor.clear
-        let backgroundLayer = CGGradient.race_bgGradient()
-        backgroundLayer.frame = view.frame
-        view.layer.insertSublayer(backgroundLayer, at: 0)
+        view.backgroundColor = UIColor.race_bgGreyColor()
         progressBarBorder.layer.cornerRadius = 15
         progressBarIndicator.layer.cornerRadius = 15
         progressBarIndicator.backgroundColor = UIColor.race_blueColor()
@@ -122,8 +125,8 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
                 updateExcerptText(ofType: InputType.correct)
                 if (currentCharacterIndex == excerptLabel.text!.count - 1) {
                     print("finished")
-                    resetGame()
-//                    self.performSegue(withIdentifier: "GameToResultsSegueID", sender: nil)
+                    timer.invalidate()
+                    self.performSegue(withIdentifier: "GameToResultsSegueID", sender: nil)
                     return false
                 }
                 currentCharacterIndex = currentCharacterIndex + 1
@@ -170,6 +173,7 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
             resultsVC.wpm = wordsPerMinute
             resultsVC.accuracy = 98
             resultsVC.time = seconds
+            resultsVC.quote = quote
         }
     }
     
@@ -192,6 +196,7 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
     }
     
     @objc func updateCounter() {
+        
         seconds = seconds + 1
         wordsPerMinute = (currentCharacterIndex/5 * 60)/(seconds)
     }

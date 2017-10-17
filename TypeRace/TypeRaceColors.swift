@@ -22,6 +22,10 @@ extension UIColor {
     class func race_redColorHighlight() -> UIColor {
         return UIColor(red: (255/255.0), green: (59/255.0), blue: (48/255.0), alpha: 0.6)
     }
+
+    class func race_bgGreyColor() -> UIColor {
+        return UIColor(red: (247/255.0), green: (247/255.0), blue: (247/255.0), alpha: 1.0)
+    }
     
 }
 
