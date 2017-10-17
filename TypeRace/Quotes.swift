@@ -9,24 +9,24 @@
 import Foundation
 
 class Quotes {
-    var quotes = [QuoteLocal]()
+    var quotes = [Quote]()
     init() {
         let wordListPath = Bundle.main.path(forResource: "samplequotes", ofType: "json")
         do {
             let data = try Data(contentsOf: URL(fileURLWithPath: wordListPath!))
             let quotesData = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! [[String: String]]
             for quote in quotesData {
-                let newQuote = QuoteLocal(quoteText: quote["quoteText"]!, quoteAuthor: quote["quoteAuthor"]!)
+                let newQuote = Quote(quoteText: quote["quoteText"]!, quoteAuthor: quote["quoteAuthor"]!)
                 self.quotes.append(newQuote)
             }
-            for quote in self.quotes {
-                print("quote text: \(quote.quoteText!) - \(quote.quoteAuthor!)")
-            }
+//            for quote in self.quotes {
+//                print("quote text: \(quote.quoteText!) - \(quote.quoteAuthor!)")
+//            }
         } catch {
             
         }
     }
-    func getRandomQuote() -> QuoteLocal? {
+    func getRandomQuote() -> Quote? {
         if quotes.count != 0 {
             let randomNumber = Int(arc4random_uniform(UInt32(quotes.count)))
             return quotes[randomNumber]
@@ -37,7 +37,7 @@ class Quotes {
     
 }
 
-class QuoteLocal: Decodable {
+class Quote: Decodable {
     var quoteText: String!
     var quoteAuthor: String!
     
@@ -47,7 +47,7 @@ class QuoteLocal: Decodable {
     }
 }
 
-class Quote: Decodable {
+class QuoteOnline: Decodable {
     var quote: String!
     var author: String!
     
@@ -59,7 +59,7 @@ class Quote: Decodable {
             } else {
                 if let content = data {
                     do {
-                        let quote = try JSONDecoder().decode(Quote.self, from: content)
+                        let quote = try JSONDecoder().decode(QuoteOnline.self, from: content)
 //                        print(quote.quote)
 //                        print(quote.author)
                     }

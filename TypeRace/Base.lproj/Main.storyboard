@@ -60,7 +60,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="editingDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="8wP-6y-8Al"/>
                                             <action selector="end:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="NSB-ms-xul"/>
                                             <action selector="letterTyped:" destination="BYZ-38-t0r" eventType="valueChanged" id="YnL-S3-OjH"/>
                                             <action selector="valueChanged:forEvent:" destination="BYZ-38-t0r" eventType="valueChanged" id="bqe-k4-PTs"/>
@@ -122,6 +121,7 @@
                         <outlet property="progressBarIndicatorWidth" destination="6FC-ZU-kny" id="A71-WZ-hfV"/>
                         <outlet property="timeLabel" destination="MQs-Dn-y5M" id="pMa-BP-mPn"/>
                         <outlet property="wpmLabel" destination="u2Z-cb-bhm" id="Fk7-lf-kmI"/>
+                        <segue destination="hO1-hV-1yO" kind="show" identifier="GameToResultsSegueID" id="35v-w2-9a6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

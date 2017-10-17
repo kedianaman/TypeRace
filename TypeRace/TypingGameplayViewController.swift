@@ -49,8 +49,8 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         }
     }
     var timer = Timer()
-    var randomQuote: Quote!
-    var quotes = Quotes()
+    var quotes: Quotes!
+    var quote: Quote!
 
     
     enum InputType {
@@ -65,17 +65,23 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         inputTextField.delegate = self
-        words = excerptLabel.text!.components(separatedBy: " ")
+        quotes = Quotes()
+        quote = quotes.getRandomQuote()!
         initialSetup()
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TypingGameplayViewController.updateCounter), userInfo: nil, repeats: true)        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TypingGameplayViewController.updateCounter), userInfo: nil, repeats: true)
+        addShadow(view: excerptLabelContainerView)
+        addShadow(view: inputTextContainerView)
     }
     
     func initialSetup() {
-        excerptLabel.attributedText = NSAttributedString(string: excerptLabel.text!)
+//        excerptLabel.attributedText = NSAttributedString(string: excerptLabel.text!)
+        excerptLabel.attributedText = NSAttributedString(string: quote.quoteText!)
+        words = excerptLabel.text!.components(separatedBy: " ")
         inputTextField.autocorrectionType = UITextAutocorrectionType.no
         shouldHighlightExcertWord(highlight: true, wordIndex: currentWordIndex, startCharacterIndex: currentCharacterIndex)
         view.backgroundColor = UIColor.clear
@@ -85,8 +91,6 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         progressBarBorder.layer.cornerRadius = 15
         progressBarIndicator.layer.cornerRadius = 15
         progressBarIndicator.backgroundColor = UIColor.race_blueColor()
-        addShadow(view: excerptLabelContainerView)
-        addShadow(view: inputTextContainerView)
     }
     
     // MARK: Text Field Delegate
@@ -113,8 +117,7 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
                 updateExcerptText(ofType: InputType.correct)
                 if (currentCharacterIndex == excerptLabel.text!.count - 1) {
                     print("finished")
-                    let resultsVC = self.storyboard?.instantiateViewController(withIdentifier: "ResultVCID") as! ResultsViewController
-                    self.present(resultsVC, animated: true, completion: nil)
+                    self.performSegue(withIdentifier: "GameToResultsSegueID", sender: nil)
                     return true
                 }
                 currentCharacterIndex = currentCharacterIndex + 1
@@ -152,6 +155,15 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
             return true
         }
         return true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if let resultsVC = segue.destination as? ResultsViewController {
+            resultsVC.wpm = wordsPerMinute
+            resultsVC.accuracy = 98
+            resultsVC.time = seconds
+        }
     }
     
     // MARK: Helper Methods
