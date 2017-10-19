@@ -19,6 +19,8 @@
 		EDB032721F8EE4D100C07D53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB032701F8EE4D100C07D53 /* LaunchScreen.storyboard */; };
 		EDB0327D1F8EE4D100C07D53 /* TypeRaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0327C1F8EE4D100C07D53 /* TypeRaceTests.swift */; };
 		EDB032881F8EE4D100C07D53 /* TypeRaceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB032871F8EE4D100C07D53 /* TypeRaceUITests.swift */; };
+		EDC311CF1F994D2A00275B2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED525ECE1F994B03004E4B7B /* Assets.xcassets */; };
+		EDC311D11F994EB100275B2F /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC311D01F994EB100275B2F /* MainMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,7 @@
 		EDB032831F8EE4D100C07D53 /* TypeRaceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TypeRaceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDB032871F8EE4D100C07D53 /* TypeRaceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeRaceUITests.swift; sourceTree = "<group>"; };
 		EDB032891F8EE4D100C07D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDC311D01F994EB100275B2F /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		EDC3A4EC1F9489CA0021C867 /* samplequotes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = samplequotes.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				EDB0326B1F8EE4D100C07D53 /* Main.storyboard */,
+				EDC311D01F994EB100275B2F /* MainMenuViewController.swift */,
 				EDB032691F8EE4D100C07D53 /* TypingGameplayViewController.swift */,
 				ED7432B81F949DFB007F977F /* ResultsViewController.swift */,
 				ED786DAC1F9192D800AB345F /* TypeRaceColors.swift */,
@@ -269,6 +273,7 @@
 				ED7432B51F948A22007F977F /* samplequotes.json in Resources */,
 				EDB032721F8EE4D100C07D53 /* LaunchScreen.storyboard in Resources */,
 				EDB0326D1F8EE4D100C07D53 /* Main.storyboard in Resources */,
+				EDC311CF1F994D2A00275B2F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +302,7 @@
 				EDB0326A1F8EE4D100C07D53 /* TypingGameplayViewController.swift in Sources */,
 				ED525ECD1F9946E4004E4B7B /* TypingGame.swift in Sources */,
 				ED786DAD1F9192D800AB345F /* TypeRaceColors.swift in Sources */,
+				EDC311D11F994EB100275B2F /* MainMenuViewController.swift in Sources */,
 				ED7432B91F949DFB007F977F /* ResultsViewController.swift in Sources */,
 				EDB032681F8EE4D100C07D53 /* AppDelegate.swift in Sources */,
 			);

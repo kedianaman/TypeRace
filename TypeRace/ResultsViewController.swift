@@ -29,6 +29,9 @@ class ResultsViewController: UIViewController {
     @IBAction func retryButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: "unwindToGameID", sender: self)
     }
+    @IBAction func homeButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "unwindToMainMenuSegueID", sender: self)
+    }
     
     func initialSetUp() {
         view.backgroundColor = UIColor.race_bgGreyColor()

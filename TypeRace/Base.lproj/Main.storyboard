@@ -1,16 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="etx-e6-HxV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Main Menu View Controller-->
+        <scene sceneID="j63-GM-IJN">
+            <objects>
+                <viewController id="etx-e6-HxV" customClass="MainMenuViewController" customModule="TypeRace" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cj2-lV-fSJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type RACE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcu-ij-RdS">
+                                <rect key="frame" x="66.5" y="40" width="242" height="56"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLR-0u-5Sz">
+                                <rect key="frame" x="97.5" y="167.5" width="180" height="180"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="BDh-Ke-NLs"/>
+                                    <constraint firstAttribute="width" secondItem="FLR-0u-5Sz" secondAttribute="height" multiplier="1:1" id="irR-Gt-LiM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="75"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xKv-iX-mKp">
+                                <rect key="frame" x="66" y="408" width="243" height="199"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHZ-Zm-uNA">
+                                        <rect key="frame" x="0.0" y="0.0" width="243" height="53"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="uHZ-Zm-uNA" secondAttribute="height" multiplier="550:120" id="4f1-sr-VVb"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="SinglePlayerMenuButton"/>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="jec-gX-VB4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilZ-Qz-fdS">
+                                        <rect key="frame" x="0.0" y="73" width="243" height="53"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ilZ-Qz-fdS" secondAttribute="height" multiplier="550:120" id="SEU-Ij-pKH"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="MultiplayerMenuButton"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2N-Qe-Kwr">
+                                        <rect key="frame" x="0.0" y="146" width="243" height="53"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="f2N-Qe-Kwr" secondAttribute="height" multiplier="550:120" id="g1e-Xa-3AJ"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="LeaderboardMenuButton"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Oyy-wF-9qZ" firstAttribute="bottom" secondItem="xKv-iX-mKp" secondAttribute="bottom" constant="60" id="DtB-CA-qWQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xKv-iX-mKp" secondAttribute="trailing" constant="50" id="GN0-UK-QaN"/>
+                            <constraint firstItem="FLR-0u-5Sz" firstAttribute="centerX" secondItem="cj2-lV-fSJ" secondAttribute="centerXWithinMargins" id="GkN-qv-1sE"/>
+                            <constraint firstItem="vcu-ij-RdS" firstAttribute="top" secondItem="cj2-lV-fSJ" secondAttribute="topMargin" constant="20" id="QGL-rU-nq0"/>
+                            <constraint firstItem="FLR-0u-5Sz" firstAttribute="centerY" secondItem="cj2-lV-fSJ" secondAttribute="centerYWithinMargins" multiplier="0.75" id="Vez-Bg-4Bd"/>
+                            <constraint firstItem="vcu-ij-RdS" firstAttribute="centerX" secondItem="cj2-lV-fSJ" secondAttribute="centerXWithinMargins" id="Vra-3q-0IL"/>
+                            <constraint firstItem="xKv-iX-mKp" firstAttribute="leading" secondItem="cj2-lV-fSJ" secondAttribute="leadingMargin" constant="50" id="WnH-zR-w8h"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Oyy-wF-9qZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="titleLabel" destination="vcu-ij-RdS" id="9Kd-aw-YUb"/>
+                        <outlet property="topSpeedLabel" destination="FLR-0u-5Sz" id="N75-B4-Wke"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3hL-YX-KHu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-660" y="134"/>
+        </scene>
         <!--Typing Gameplay View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -236,35 +314,38 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="bXf-cv-TlK">
-                                <rect key="frame" x="50" y="481" width="275" height="70"/>
+                                <rect key="frame" x="50" y="478.5" width="275" height="75"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8H-A8-lK7">
-                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="c8H-A8-lK7" secondAttribute="height" multiplier="1:1" id="C2r-uT-8QH"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="RetryButton"/>
+                                        <state key="normal" backgroundImage="Retry"/>
                                         <connections>
                                             <action selector="retryButtonPressed:" destination="hO1-hV-1yO" eventType="touchUpInside" id="XhQ-Kj-Jnv"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBR-Jd-g4p">
-                                        <rect key="frame" x="102.5" y="0.0" width="70" height="70"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBR-Jd-g4p">
+                                        <rect key="frame" x="100" y="0.0" width="75" height="75"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="hBR-Jd-g4p" secondAttribute="height" multiplier="1:1" id="zlz-O8-MVs"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="LeaderboardButton"/>
+                                        <state key="normal" backgroundImage="Leaderboard"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUB-le-RWs">
-                                        <rect key="frame" x="205" y="0.0" width="70" height="70"/>
+                                        <rect key="frame" x="200" y="0.0" width="75" height="75"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="cUB-le-RWs" secondAttribute="height" multiplier="1:1" id="6RH-um-JxW"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="HomeButton"/>
+                                        <state key="normal" backgroundImage="Home"/>
+                                        <connections>
+                                            <action selector="homeButtonPressed:" destination="hO1-hV-1yO" eventType="touchUpInside" id="d9n-YT-ASN"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="LMg-xP-PLK"/>
+                                    <constraint firstAttribute="height" constant="75" id="LMg-xP-PLK"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -294,6 +375,7 @@
                         <outlet property="timeLabel" destination="fWn-1H-Fr7" id="Ocf-dM-hzI"/>
                         <outlet property="wpmLabel" destination="jtH-BT-x0O" id="7an-j9-2u6"/>
                         <segue destination="vGZ-nm-zYa" kind="unwind" identifier="unwindToGameID" unwindAction="unwindToGameViewControllerWithSegue:" id="sIo-qm-c8b"/>
+                        <segue destination="vGZ-nm-zYa" kind="unwind" identifier="unwindToMainMenuSegueID" unwindAction="unwindToMainMenuViewControllerWithSegue:" id="5Hm-H6-0On"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wTa-nQ-fgc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -303,8 +385,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="HomeButton" width="152" height="152"/>
-        <image name="LeaderboardButton" width="152" height="152"/>
-        <image name="RetryButton" width="152" height="152"/>
+        <image name="Home" width="152" height="152"/>
+        <image name="Leaderboard" width="152" height="152"/>
+        <image name="LeaderboardMenuButton" width="558" height="128"/>
+        <image name="MultiplayerMenuButton" width="558" height="128"/>
+        <image name="Retry" width="152" height="152"/>
+        <image name="SinglePlayerMenuButton" width="558" height="128"/>
     </resources>
 </document>
