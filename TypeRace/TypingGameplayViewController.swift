@@ -32,6 +32,7 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         }
     }
     var currentWordIndex = 0
+    var totalCharactersInput = 0;
     var incorrectInput = false {
         didSet {
             updateTextField(incorrect: incorrectInput)
@@ -106,6 +107,7 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         let inputString = string
         
         if (inputString.count != 0) {
+            totalCharactersInput = totalCharactersInput + 1
             // mark as incorrect despite input
             if (incorrectInput == true) {
                 
@@ -171,7 +173,7 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         super.prepare(for: segue, sender: sender)
         if let resultsVC = segue.destination as? ResultsViewController {
             resultsVC.wpm = wordsPerMinute
-            resultsVC.accuracy = 98
+            resultsVC.accuracy = Int((Double(quote.quoteText.count)/Double(totalCharactersInput)) * 100)
             resultsVC.time = seconds
             resultsVC.quote = quote
         }
@@ -205,9 +207,9 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         let shadowPath = UIBezierPath(rect: view.bounds)
         view.layer.masksToBounds = false
         view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOffset = CGSize(width: 0, height: 0.5)
+        view.layer.shadowOffset = CGSize(width: 0, height: 2)
         view.layer.shadowOpacity = 0.2
-        view.layer.shadowRadius = 10
+        view.layer.shadowRadius = 2
         view.layer.shadowPath = shadowPath.cgPath
     }
     
@@ -245,11 +247,13 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         currentCharacterIndex = 0
         incorrectInput = false
         incorrectInputIndex = 0
+        totalCharactersInput = 0
         wordsPerMinute = 0
         seconds = 0
         quote = quotes.getRandomQuote()
         words = quote.quoteText.components(separatedBy: " ")
         inputTextField.text = ""
+        initialSetup()
     }
 }
 

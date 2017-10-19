@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		ED10610B1F934CBD00F44A2B /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED10610A1F934CBD00F44A2B /* Quotes.swift */; };
+		ED525ECD1F9946E4004E4B7B /* TypingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED525ECC1F9946E4004E4B7B /* TypingGame.swift */; };
 		ED6CFEB11F943D8300D22641 /* quotes.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6CFEB01F94389D00D22641 /* quotes.json */; };
 		ED7432B51F948A22007F977F /* samplequotes.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC3A4EC1F9489CA0021C867 /* samplequotes.json */; };
 		ED7432B91F949DFB007F977F /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7432B81F949DFB007F977F /* ResultsViewController.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		ED10610A1F934CBD00F44A2B /* Quotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
+		ED525ECC1F9946E4004E4B7B /* TypingGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingGame.swift; sourceTree = "<group>"; };
 		ED6CFEB01F94389D00D22641 /* quotes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = quotes.json; sourceTree = "<group>"; };
 		ED7432B81F949DFB007F977F /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		ED786DAC1F9192D800AB345F /* TypeRaceColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeRaceColors.swift; sourceTree = "<group>"; };
@@ -84,14 +86,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		ED7432B61F94984C007F977F /* Quote Model */ = {
+		ED7432B61F94984C007F977F /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				ED10610A1F934CBD00F44A2B /* Quotes.swift */,
+				ED525ECC1F9946E4004E4B7B /* TypingGame.swift */,
 				ED6CFEB01F94389D00D22641 /* quotes.json */,
 				EDC3A4EC1F9489CA0021C867 /* samplequotes.json */,
 			);
-			name = "Quote Model";
+			name = Model;
 			sourceTree = "<group>";
 		};
 		ED7432B71F949871007F977F /* Extra */ = {
@@ -131,7 +134,7 @@
 				EDB032691F8EE4D100C07D53 /* TypingGameplayViewController.swift */,
 				ED7432B81F949DFB007F977F /* ResultsViewController.swift */,
 				ED786DAC1F9192D800AB345F /* TypeRaceColors.swift */,
-				ED7432B61F94984C007F977F /* Quote Model */,
+				ED7432B61F94984C007F977F /* Model */,
 				EDB0326E1F8EE4D100C07D53 /* Assets.xcassets */,
 				ED7432B71F949871007F977F /* Extra */,
 			);
@@ -294,6 +297,7 @@
 			files = (
 				ED10610B1F934CBD00F44A2B /* Quotes.swift in Sources */,
 				EDB0326A1F8EE4D100C07D53 /* TypingGameplayViewController.swift in Sources */,
+				ED525ECD1F9946E4004E4B7B /* TypingGame.swift in Sources */,
 				ED786DAD1F9192D800AB345F /* TypeRaceColors.swift in Sources */,
 				ED7432B91F949DFB007F977F /* ResultsViewController.swift in Sources */,
 				EDB032681F8EE4D100C07D53 /* AppDelegate.swift in Sources */,
