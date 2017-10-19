@@ -11,29 +11,15 @@ import UIKit
 
 class TypingGame {
     var quote: Quote!
-    var currentCharacterIndex = 0
-    var currentWordIndex = 0
-    var totalCharactersInput = 0;
-    var incorrectInput = false
-    var incorrectInputIndex = 0
+    var accuracy = 0
     var wordsPerMinute = 0
     var seconds = 0
-    var timer = Timer()
     
     
-    enum InputType {
-        case correct
-        case incorrect
-        case backspace
-    }
-    
+
     init() {
         let quotes = Quotes()
         self.quote = quotes.getRandomQuote()
-    }
-    
-    func updateGameFor(input: String) {
-        
     }
     
 }

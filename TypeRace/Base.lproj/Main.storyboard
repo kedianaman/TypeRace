@@ -137,7 +137,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2nO-l6-avC">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2nO-l6-avC">
                                 <rect key="frame" x="25" y="318" width="0.0" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.32230444650000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -153,7 +153,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Y2J-Mu-9W1">
-                                <rect key="frame" x="25" y="180.5" width="325" height="120"/>
+                                <rect key="frame" x="25" y="181" width="325" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWn-1H-Fr7">
                                         <rect key="frame" x="0.0" y="15" width="90" height="90"/>
@@ -230,32 +230,41 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQa-WJ-VlC">
-                                <rect key="frame" x="25" y="367" width="325" height="21.5"/>
+                                <rect key="frame" x="25" y="367.5" width="325" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bXf-cv-TlK">
-                                <rect key="frame" x="25" y="460.5" width="325" height="110"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="bXf-cv-TlK">
+                                <rect key="frame" x="50" y="481" width="275" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8H-A8-lK7">
-                                        <rect key="frame" x="0.0" y="0.0" width="108.5" height="110"/>
-                                        <state key="normal" title="Retry"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="c8H-A8-lK7" secondAttribute="height" multiplier="1:1" id="C2r-uT-8QH"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="RetryButton"/>
                                         <connections>
                                             <action selector="retryButtonPressed:" destination="hO1-hV-1yO" eventType="touchUpInside" id="XhQ-Kj-Jnv"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBR-Jd-g4p">
-                                        <rect key="frame" x="108.5" y="0.0" width="108" height="110"/>
-                                        <state key="normal" title="Leaderboard"/>
+                                        <rect key="frame" x="102.5" y="0.0" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="hBR-Jd-g4p" secondAttribute="height" multiplier="1:1" id="zlz-O8-MVs"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="LeaderboardButton"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUB-le-RWs">
-                                        <rect key="frame" x="216.5" y="0.0" width="108.5" height="110"/>
-                                        <state key="normal" title="Home"/>
+                                        <rect key="frame" x="205" y="0.0" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="cUB-le-RWs" secondAttribute="height" multiplier="1:1" id="6RH-um-JxW"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="HomeButton"/>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="110" id="LMg-xP-PLK"/>
+                                    <constraint firstAttribute="height" constant="70" id="LMg-xP-PLK"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -267,12 +276,13 @@
                             <constraint firstItem="Uj8-Dr-UDB" firstAttribute="trailing" secondItem="2nO-l6-avC" secondAttribute="trailing" constant="350" id="LCj-3p-LM5"/>
                             <constraint firstItem="vQa-WJ-VlC" firstAttribute="centerY" secondItem="Uj8-Dr-UDB" secondAttribute="centerY" multiplier="1.1" id="Mat-AR-kFW"/>
                             <constraint firstItem="Y2J-Mu-9W1" firstAttribute="centerY" secondItem="Uj8-Dr-UDB" secondAttribute="centerY" multiplier="0.7" id="PAT-V3-tS1"/>
-                            <constraint firstItem="bXf-cv-TlK" firstAttribute="leading" secondItem="Uj8-Dr-UDB" secondAttribute="leading" constant="25" id="WFk-bu-nKi"/>
-                            <constraint firstItem="Uj8-Dr-UDB" firstAttribute="trailing" secondItem="bXf-cv-TlK" secondAttribute="trailing" constant="25" id="Zps-54-ZWt"/>
+                            <constraint firstItem="bXf-cv-TlK" firstAttribute="leading" secondItem="Uj8-Dr-UDB" secondAttribute="leading" constant="50" id="WFk-bu-nKi"/>
+                            <constraint firstItem="Uj8-Dr-UDB" firstAttribute="trailing" secondItem="bXf-cv-TlK" secondAttribute="trailing" constant="50" id="Zps-54-ZWt"/>
                             <constraint firstItem="Uj8-Dr-UDB" firstAttribute="trailing" secondItem="vQa-WJ-VlC" secondAttribute="trailing" constant="25" id="dkV-6d-8RO"/>
                             <constraint firstItem="bXf-cv-TlK" firstAttribute="centerY" secondItem="Uj8-Dr-UDB" secondAttribute="centerY" multiplier="1.5" id="gEX-gb-9jZ"/>
                             <constraint firstItem="vQa-WJ-VlC" firstAttribute="leading" secondItem="Uj8-Dr-UDB" secondAttribute="leading" constant="25" id="iq1-XT-fxe"/>
                             <constraint firstItem="ngh-ei-ymQ" firstAttribute="centerY" secondItem="Uj8-Dr-UDB" secondAttribute="centerY" multiplier="0.3" id="kxe-xr-nD1"/>
+                            <constraint firstItem="2nO-l6-avC" firstAttribute="centerY" secondItem="wgR-3a-3A9" secondAttribute="centerY" id="l8b-vl-qZP"/>
                             <constraint firstItem="Uj8-Dr-UDB" firstAttribute="trailing" secondItem="ngh-ei-ymQ" secondAttribute="trailing" constant="25" id="xNx-1s-RgY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Uj8-Dr-UDB"/>
@@ -292,4 +302,9 @@
             <point key="canvasLocation" x="880.79999999999995" y="131.78410794602701"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="HomeButton" width="152" height="152"/>
+        <image name="LeaderboardButton" width="152" height="152"/>
+        <image name="RetryButton" width="152" height="152"/>
+    </resources>
 </document>

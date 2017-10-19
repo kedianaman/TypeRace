@@ -16,7 +16,6 @@
 		EDB032681F8EE4D100C07D53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB032671F8EE4D100C07D53 /* AppDelegate.swift */; };
 		EDB0326A1F8EE4D100C07D53 /* TypingGameplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB032691F8EE4D100C07D53 /* TypingGameplayViewController.swift */; };
 		EDB0326D1F8EE4D100C07D53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB0326B1F8EE4D100C07D53 /* Main.storyboard */; };
-		EDB0326F1F8EE4D100C07D53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDB0326E1F8EE4D100C07D53 /* Assets.xcassets */; };
 		EDB032721F8EE4D100C07D53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB032701F8EE4D100C07D53 /* LaunchScreen.storyboard */; };
 		EDB0327D1F8EE4D100C07D53 /* TypeRaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0327C1F8EE4D100C07D53 /* TypeRaceTests.swift */; };
 		EDB032881F8EE4D100C07D53 /* TypeRaceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB032871F8EE4D100C07D53 /* TypeRaceUITests.swift */; };
@@ -42,6 +41,7 @@
 /* Begin PBXFileReference section */
 		ED10610A1F934CBD00F44A2B /* Quotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
 		ED525ECC1F9946E4004E4B7B /* TypingGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingGame.swift; sourceTree = "<group>"; };
+		ED525ECE1F994B03004E4B7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED6CFEB01F94389D00D22641 /* quotes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = quotes.json; sourceTree = "<group>"; };
 		ED7432B81F949DFB007F977F /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		ED786DAC1F9192D800AB345F /* TypeRaceColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeRaceColors.swift; sourceTree = "<group>"; };
@@ -49,7 +49,6 @@
 		EDB032671F8EE4D100C07D53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDB032691F8EE4D100C07D53 /* TypingGameplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingGameplayViewController.swift; sourceTree = "<group>"; };
 		EDB0326C1F8EE4D100C07D53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EDB0326E1F8EE4D100C07D53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDB032711F8EE4D100C07D53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EDB032731F8EE4D100C07D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDB032781F8EE4D100C07D53 /* TypeRaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TypeRaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,7 +134,7 @@
 				ED7432B81F949DFB007F977F /* ResultsViewController.swift */,
 				ED786DAC1F9192D800AB345F /* TypeRaceColors.swift */,
 				ED7432B61F94984C007F977F /* Model */,
-				EDB0326E1F8EE4D100C07D53 /* Assets.xcassets */,
+				ED525ECE1F994B03004E4B7B /* Assets.xcassets */,
 				ED7432B71F949871007F977F /* Extra */,
 			);
 			path = TypeRace;
@@ -269,7 +268,6 @@
 				ED6CFEB11F943D8300D22641 /* quotes.json in Resources */,
 				ED7432B51F948A22007F977F /* samplequotes.json in Resources */,
 				EDB032721F8EE4D100C07D53 /* LaunchScreen.storyboard in Resources */,
-				EDB0326F1F8EE4D100C07D53 /* Assets.xcassets in Resources */,
 				EDB0326D1F8EE4D100C07D53 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

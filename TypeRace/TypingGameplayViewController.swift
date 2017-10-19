@@ -50,7 +50,6 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         }
     }
     var timer = Timer()
-    var quotes: Quotes!
     var quote: Quote! {
         didSet {
             excerptLabel.text = quote.quoteText
@@ -70,8 +69,7 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         inputTextField.delegate = self
-        quotes = Quotes()
-        quote = quotes.getRandomQuote()!
+        quote = Quotes().getRandomQuote()!
         initialSetup()
 
     }
@@ -90,7 +88,6 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
 
     
     func initialSetup() {
-//        excerptLabel.attributedText = NSAttributedString(string: excerptLabel.text!)
         excerptLabel.attributedText = NSAttributedString(string: quote.quoteText!)
         words = excerptLabel.text!.components(separatedBy: " ")
         inputTextField.autocorrectionType = UITextAutocorrectionType.no
@@ -202,18 +199,7 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         seconds = seconds + 1
         wordsPerMinute = (currentCharacterIndex/5 * 60)/(seconds)
     }
-    
-    func addShadow(view: UIView) {
-        let shadowPath = UIBezierPath(rect: view.bounds)
-        view.layer.masksToBounds = false
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOffset = CGSize(width: 0, height: 2)
-        view.layer.shadowOpacity = 0.2
-        view.layer.shadowRadius = 2
-        view.layer.shadowPath = shadowPath.cgPath
-    }
-    
-    
+
     func updateExcerptText(ofType: InputType) {
         
         let attributedText = NSMutableAttributedString(attributedString: excerptLabel.attributedText!)
@@ -250,10 +236,20 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         totalCharactersInput = 0
         wordsPerMinute = 0
         seconds = 0
-        quote = quotes.getRandomQuote()
+        quote = Quotes().getRandomQuote()
         words = quote.quoteText.components(separatedBy: " ")
         inputTextField.text = ""
         initialSetup()
+    }
+    
+    func addShadow(view: UIView) {
+        let shadowPath = UIBezierPath(rect: view.bounds)
+        view.layer.masksToBounds = false
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 2)
+        view.layer.shadowOpacity = 0.2
+        view.layer.shadowRadius = 2
+        view.layer.shadowPath = shadowPath.cgPath
     }
 }
 
