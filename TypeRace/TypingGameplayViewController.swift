@@ -80,6 +80,7 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TypingGameplayViewController.updateCounter), userInfo: nil, repeats: true)
         addShadow(view: excerptLabelContainerView)
         addShadow(view: inputTextContainerView)
+        inputTextField.becomeFirstResponder()
     }
     
     @IBAction func unwindToGameViewController(segue:UIStoryboardSegue) {

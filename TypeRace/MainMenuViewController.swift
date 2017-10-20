@@ -16,7 +16,6 @@ class MainMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
-        
         // Do any additional setup after loading the view.
     }
     
@@ -30,17 +29,28 @@ class MainMenuViewController: UIViewController {
         titleText.append(NSMutableAttributedString(string: "C", attributes: [NSAttributedStringKey.font: raceFont, NSAttributedStringKey.foregroundColor: UIColor.race_greenColor()]))
         titleText.append(NSMutableAttributedString(string: "E", attributes: [NSAttributedStringKey.font: raceFont, NSAttributedStringKey.foregroundColor: UIColor.race_orangeColor()]))
         titleLabel.attributedText = titleText
-
+        var topSpeed = 0;
+        
+        if let topWPM = UserDefaults.standard.value(forKey: "topWPM") as? Int {
+            topSpeed = topWPM
+        }
         topSpeedLabel.clipsToBounds = true
         topSpeedLabel.layer.cornerRadius = topSpeedLabel.frame.width/2
         let numberFont = UIFont.systemFont(ofSize: 70, weight: UIFont.Weight.bold)
         let subtitleFont = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.light)
-        let topSpeedTitle = NSMutableAttributedString(string: "62", attributes: [NSAttributedStringKey.font: numberFont])
+        let topSpeedTitle = NSMutableAttributedString(string: String(topSpeed), attributes: [NSAttributedStringKey.font: numberFont])
         topSpeedTitle.append(NSMutableAttributedString(string: "\n TOP WPM", attributes: [NSAttributedStringKey.font: subtitleFont]))
         topSpeedLabel.attributedText = topSpeedTitle
     }
     
     @IBAction func unwindToMainMenuViewController(segue:UIStoryboardSegue) {
-        // set score 
+        // set score
+        if let topWPM = UserDefaults.standard.value(forKey: "topWPM") as? Int {
+            let numberFont = UIFont.systemFont(ofSize: 70, weight: UIFont.Weight.bold)
+            let subtitleFont = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.light)
+            let topSpeedTitle = NSMutableAttributedString(string: String(topWPM), attributes: [NSAttributedStringKey.font: numberFont])
+            topSpeedTitle.append(NSMutableAttributedString(string: "\n TOP WPM", attributes: [NSAttributedStringKey.font: subtitleFont]))
+            topSpeedLabel.attributedText = topSpeedTitle
+        }
     }
 }

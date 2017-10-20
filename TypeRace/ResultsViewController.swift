@@ -24,6 +24,14 @@ class ResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetUp()
+        let defaults = UserDefaults.standard
+        if let topWPM = defaults.value(forKey: "topWPM") as? Int {
+            if wpm > topWPM {
+                defaults.set(wpm, forKey: "topWPM")
+            }
+        } else {
+            defaults.set(wpm, forKey: "topWPM")
+        }
     }
 
     @IBAction func retryButtonPressed(_ sender: Any) {
