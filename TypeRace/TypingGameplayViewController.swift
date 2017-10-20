@@ -81,6 +81,9 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         addShadow(view: excerptLabelContainerView)
         addShadow(view: inputTextContainerView)
         inputTextField.becomeFirstResponder()
+//        inputTextField.isUserInteractionEnabled = false
+        // disallow text selection
+        
     }
     
     @IBAction func unwindToGameViewController(segue:UIStoryboardSegue) {

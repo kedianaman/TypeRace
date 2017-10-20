@@ -7,15 +7,21 @@
 //
 
 import UIKit
+import GameKit
 
 class MainMenuViewController: UIViewController {
-
-    @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var topSpeedLabel: UILabel!
+    
+    var gameCenterEnabled = Bool()
+    var gameCenterLeaderboardID = String()
+    let leaderboardID = "com.score.typerace"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
+        authenticateLocalPlayer()
         // Do any additional setup after loading the view.
     }
     
@@ -23,10 +29,10 @@ class MainMenuViewController: UIViewController {
         self.view.backgroundColor = UIColor.race_bgGreyColor()
         let typeFont = UIFont.systemFont(ofSize: 50, weight: UIFont.Weight.light)
         let raceFont = UIFont.systemFont(ofSize: 50, weight: UIFont.Weight.bold)
-        let titleText = NSMutableAttributedString(string: "Type", attributes: [NSAttributedStringKey.font: typeFont])
-        titleText.append(NSMutableAttributedString(string: "R", attributes: [NSAttributedStringKey.font: raceFont, NSAttributedStringKey.foregroundColor: UIColor.race_blueColor()]))
-        titleText.append(NSMutableAttributedString(string: "A", attributes: [NSAttributedStringKey.font: raceFont, NSAttributedStringKey.foregroundColor: UIColor.race_pinkColor()]))
-        titleText.append(NSMutableAttributedString(string: "C", attributes: [NSAttributedStringKey.font: raceFont, NSAttributedStringKey.foregroundColor: UIColor.race_greenColor()]))
+        let titleText = NSMutableAttributedString(string: "Quick", attributes: [NSAttributedStringKey.font: typeFont])
+        titleText.append(NSMutableAttributedString(string: "T", attributes: [NSAttributedStringKey.font: raceFont, NSAttributedStringKey.foregroundColor: UIColor.race_blueColor()]))
+        titleText.append(NSMutableAttributedString(string: "Y", attributes: [NSAttributedStringKey.font: raceFont, NSAttributedStringKey.foregroundColor: UIColor.race_pinkColor()]))
+        titleText.append(NSMutableAttributedString(string: "P", attributes: [NSAttributedStringKey.font: raceFont, NSAttributedStringKey.foregroundColor: UIColor.race_greenColor()]))
         titleText.append(NSMutableAttributedString(string: "E", attributes: [NSAttributedStringKey.font: raceFont, NSAttributedStringKey.foregroundColor: UIColor.race_orangeColor()]))
         titleLabel.attributedText = titleText
         var topSpeed = 0;
@@ -53,4 +59,28 @@ class MainMenuViewController: UIViewController {
             topSpeedLabel.attributedText = topSpeedTitle
         }
     }
+    
+    func authenticateLocalPlayer() {
+        let localPlayer: GKLocalPlayer = GKLocalPlayer.localPlayer()
+        
+        localPlayer.authenticateHandler = {(ViewController, error) -> Void in
+            if((ViewController) != nil) {
+                self.present(ViewController!, animated: true, completion: nil)
+            } else if (localPlayer.isAuthenticated) {
+                self.gameCenterEnabled = true
+                localPlayer.loadDefaultLeaderboardIdentifier(completionHandler: { (leaderboardIdentifer, error) in
+                    if error != nil {
+                        print(error!)
+                    } else {
+                        self.gameCenterLeaderboardID = leaderboardIdentifer!
+                    }
+                })
+            } else {
+                self.gameCenterEnabled = false
+                print("Local player could not be authenticated!")
+                print(error!)
+            }
+        }
+    }
+    
 }

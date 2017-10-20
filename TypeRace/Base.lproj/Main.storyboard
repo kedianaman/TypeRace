@@ -39,10 +39,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xKv-iX-mKp">
-                                <rect key="frame" x="66" y="408" width="243" height="199"/>
+                                <rect key="frame" x="56" y="395" width="263" height="212"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHZ-Zm-uNA">
-                                        <rect key="frame" x="0.0" y="0.0" width="243" height="53"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="263" height="57"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="uHZ-Zm-uNA" secondAttribute="height" multiplier="550:120" id="4f1-sr-VVb"/>
                                         </constraints>
@@ -52,14 +52,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilZ-Qz-fdS">
-                                        <rect key="frame" x="0.0" y="73" width="243" height="53"/>
+                                        <rect key="frame" x="0.0" y="77" width="263" height="57.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ilZ-Qz-fdS" secondAttribute="height" multiplier="550:120" id="SEU-Ij-pKH"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="MultiplayerMenuButton"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2N-Qe-Kwr">
-                                        <rect key="frame" x="0.0" y="146" width="243" height="53"/>
+                                        <rect key="frame" x="0.0" y="154.5" width="263" height="57.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="f2N-Qe-Kwr" secondAttribute="height" multiplier="550:120" id="g1e-Xa-3AJ"/>
                                         </constraints>
@@ -71,12 +71,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Oyy-wF-9qZ" firstAttribute="bottom" secondItem="xKv-iX-mKp" secondAttribute="bottom" constant="60" id="DtB-CA-qWQ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xKv-iX-mKp" secondAttribute="trailing" constant="50" id="GN0-UK-QaN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xKv-iX-mKp" secondAttribute="trailing" constant="40" id="GN0-UK-QaN"/>
                             <constraint firstItem="FLR-0u-5Sz" firstAttribute="centerX" secondItem="cj2-lV-fSJ" secondAttribute="centerXWithinMargins" id="GkN-qv-1sE"/>
                             <constraint firstItem="vcu-ij-RdS" firstAttribute="top" secondItem="cj2-lV-fSJ" secondAttribute="topMargin" constant="20" id="QGL-rU-nq0"/>
                             <constraint firstItem="FLR-0u-5Sz" firstAttribute="centerY" secondItem="cj2-lV-fSJ" secondAttribute="centerYWithinMargins" multiplier="0.75" id="Vez-Bg-4Bd"/>
                             <constraint firstItem="vcu-ij-RdS" firstAttribute="centerX" secondItem="cj2-lV-fSJ" secondAttribute="centerXWithinMargins" id="Vra-3q-0IL"/>
-                            <constraint firstItem="xKv-iX-mKp" firstAttribute="leading" secondItem="cj2-lV-fSJ" secondAttribute="leadingMargin" constant="50" id="WnH-zR-w8h"/>
+                            <constraint firstItem="xKv-iX-mKp" firstAttribute="leading" secondItem="cj2-lV-fSJ" secondAttribute="leadingMargin" constant="40" id="WnH-zR-w8h"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Oyy-wF-9qZ"/>
                     </view>
@@ -332,6 +332,9 @@
                                             <constraint firstAttribute="width" secondItem="hBR-Jd-g4p" secondAttribute="height" multiplier="1:1" id="zlz-O8-MVs"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="Leaderboard"/>
+                                        <connections>
+                                            <action selector="leaderboardButtonPressed:" destination="hO1-hV-1yO" eventType="touchUpInside" id="Syq-pM-Mre"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUB-le-RWs">
                                         <rect key="frame" x="200" y="0.0" width="75" height="75"/>

@@ -21,6 +21,8 @@
 		EDB032881F8EE4D100C07D53 /* TypeRaceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB032871F8EE4D100C07D53 /* TypeRaceUITests.swift */; };
 		EDC311CF1F994D2A00275B2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED525ECE1F994B03004E4B7B /* Assets.xcassets */; };
 		EDC311D11F994EB100275B2F /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC311D01F994EB100275B2F /* MainMenuViewController.swift */; };
+		EDE5E0001F9AA4ED007DEAB7 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDE5DFFF1F9AA4ED007DEAB7 /* GameKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		EDE5E0021F9AB248007DEAB7 /* GameCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE5E0011F9AB248007DEAB7 /* GameCenterManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		EDB032891F8EE4D100C07D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDC311D01F994EB100275B2F /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		EDC3A4EC1F9489CA0021C867 /* samplequotes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = samplequotes.json; sourceTree = "<group>"; };
+		EDE5DFFF1F9AA4ED007DEAB7 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		EDE5E0011F9AB248007DEAB7 /* GameCenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDE5E0001F9AA4ED007DEAB7 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +98,7 @@
 			children = (
 				ED10610A1F934CBD00F44A2B /* Quotes.swift */,
 				ED525ECC1F9946E4004E4B7B /* TypingGame.swift */,
+				EDE5E0011F9AB248007DEAB7 /* GameCenterManager.swift */,
 				ED6CFEB01F94389D00D22641 /* quotes.json */,
 				EDC3A4EC1F9489CA0021C867 /* samplequotes.json */,
 			);
@@ -116,6 +122,7 @@
 				EDB0327B1F8EE4D100C07D53 /* TypeRaceTests */,
 				EDB032861F8EE4D100C07D53 /* TypeRaceUITests */,
 				EDB032651F8EE4D100C07D53 /* Products */,
+				EDE5DFFE1F9AA4ED007DEAB7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -160,6 +167,14 @@
 				EDB032891F8EE4D100C07D53 /* Info.plist */,
 			);
 			path = TypeRaceUITests;
+			sourceTree = "<group>";
+		};
+		EDE5DFFE1F9AA4ED007DEAB7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EDE5DFFF1F9AA4ED007DEAB7 /* GameKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +246,11 @@
 					EDB032631F8EE4D100C07D53 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
 					};
 					EDB032771F8EE4D100C07D53 = {
 						CreatedOnToolsVersion = 9.0;
@@ -298,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDE5E0021F9AB248007DEAB7 /* GameCenterManager.swift in Sources */,
 				ED10610B1F934CBD00F44A2B /* Quotes.swift in Sources */,
 				EDB0326A1F8EE4D100C07D53 /* TypingGameplayViewController.swift in Sources */,
 				ED525ECD1F9946E4004E4B7B /* TypingGame.swift in Sources */,

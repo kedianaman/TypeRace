@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import GameKit
 
-class ResultsViewController: UIViewController {
+class ResultsViewController: UIViewController, GKGameCenterControllerDelegate {
+ 
 
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var wpmLabel: UILabel!
@@ -20,6 +22,7 @@ class ResultsViewController: UIViewController {
     var wpm: Int!
     var accuracy: Int!
     var quote: Quote!
+    let leaderboardID = "com.score.typerace"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,18 +31,24 @@ class ResultsViewController: UIViewController {
         if let topWPM = defaults.value(forKey: "topWPM") as? Int {
             if wpm > topWPM {
                 defaults.set(wpm, forKey: "topWPM")
+                addScoreAndSubmit(topSpeed: wpm)
             }
         } else {
             defaults.set(wpm, forKey: "topWPM")
+            addScoreAndSubmit(topSpeed: wpm)
         }
     }
 
     @IBAction func retryButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: "unwindToGameID", sender: self)
     }
+    @IBAction func leaderboardButtonPressed(_ sender: Any) {
+        showLeaderboardViewController()
+    }
     @IBAction func homeButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: "unwindToMainMenuSegueID", sender: self)
     }
+    
     
     func initialSetUp() {
         view.backgroundColor = UIColor.race_bgGreyColor()
@@ -75,7 +84,30 @@ class ResultsViewController: UIViewController {
         view.layer.shadowRadius = 10
         view.layer.shadowPath = shadowPath.cgPath
     }
-
+    
+    // Game Center Code
+    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+        gameCenterViewController.dismiss(animated: true, completion: nil)
+    }
+    func addScoreAndSubmit(topSpeed: Int) {
+        let bestSpeedInt = GKScore(leaderboardIdentifier: leaderboardID)
+        bestSpeedInt.value = Int64(topSpeed)
+        GKScore.report([bestSpeedInt]) { (error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                print("Best Score submitted to your Leaderboard!")
+            }
+        }
+    }
+    
+    func showLeaderboardViewController() {
+        let gameCenterViewController = GKGameCenterViewController()
+        gameCenterViewController.gameCenterDelegate = self
+        gameCenterViewController.viewState = .leaderboards
+        gameCenterViewController.leaderboardIdentifier = leaderboardID
+        present(gameCenterViewController, animated: true, completion: nil)
+    }
     
     
    
