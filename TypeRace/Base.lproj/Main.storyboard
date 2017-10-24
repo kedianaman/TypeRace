@@ -28,7 +28,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1sF-ve-tlv">
-                                <rect key="frame" x="98" y="167.5" width="180" height="180"/>
+                                <rect key="frame" x="98" y="150.5" width="180" height="180"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1sF-ve-tlv" secondAttribute="height" multiplier="1:1" id="eCg-dp-77n"/>
@@ -36,7 +36,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLR-0u-5Sz">
-                                <rect key="frame" x="97.5" y="167.5" width="180" height="180"/>
+                                <rect key="frame" x="97.5" y="150.5" width="180" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="BDh-Ke-NLs"/>
                                     <constraint firstAttribute="width" secondItem="FLR-0u-5Sz" secondAttribute="height" multiplier="1:1" id="irR-Gt-LiM"/>
@@ -80,13 +80,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="1sF-ve-tlv" firstAttribute="centerY" secondItem="cj2-lV-fSJ" secondAttribute="centerYWithinMargins" multiplier="0.75" id="CWf-P6-zZm"/>
+                            <constraint firstItem="1sF-ve-tlv" firstAttribute="centerY" secondItem="cj2-lV-fSJ" secondAttribute="centerYWithinMargins" multiplier="0.7" id="CWf-P6-zZm"/>
                             <constraint firstItem="Oyy-wF-9qZ" firstAttribute="bottom" secondItem="xKv-iX-mKp" secondAttribute="bottom" constant="60" id="DtB-CA-qWQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xKv-iX-mKp" secondAttribute="trailing" constant="40" id="GN0-UK-QaN"/>
                             <constraint firstItem="FLR-0u-5Sz" firstAttribute="centerX" secondItem="cj2-lV-fSJ" secondAttribute="centerXWithinMargins" id="GkN-qv-1sE"/>
                             <constraint firstItem="1sF-ve-tlv" firstAttribute="centerX" secondItem="cj2-lV-fSJ" secondAttribute="centerXWithinMargins" id="Pe4-Gl-Jg1"/>
                             <constraint firstItem="vcu-ij-RdS" firstAttribute="top" secondItem="cj2-lV-fSJ" secondAttribute="topMargin" constant="20" id="QGL-rU-nq0"/>
-                            <constraint firstItem="FLR-0u-5Sz" firstAttribute="centerY" secondItem="cj2-lV-fSJ" secondAttribute="centerYWithinMargins" multiplier="0.75" id="Vez-Bg-4Bd"/>
+                            <constraint firstItem="FLR-0u-5Sz" firstAttribute="centerY" secondItem="cj2-lV-fSJ" secondAttribute="centerYWithinMargins" multiplier="0.7" id="Vez-Bg-4Bd"/>
                             <constraint firstItem="vcu-ij-RdS" firstAttribute="centerX" secondItem="cj2-lV-fSJ" secondAttribute="centerXWithinMargins" id="Vra-3q-0IL"/>
                             <constraint firstItem="xKv-iX-mKp" firstAttribute="leading" secondItem="cj2-lV-fSJ" secondAttribute="leadingMargin" constant="40" id="WnH-zR-w8h"/>
                         </constraints>
@@ -246,75 +246,93 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Y2J-Mu-9W1">
                                 <rect key="frame" x="25" y="180.5" width="325" height="120"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWn-1H-Fr7">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j92-Bf-CXr">
                                         <rect key="frame" x="0.0" y="15" width="90" height="90"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWn-1H-Fr7">
+                                                <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="36    ">
+                                                        <attributes>
+                                                            <font key="NSFont" size="30" name="SFUIDisplay-Bold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="MIN">
+                                                        <attributes>
+                                                            <font key="NSFont" size="13" name="SFUIDisplay-Light"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="90" id="1di-m4-Z73"/>
-                                            <constraint firstAttribute="width" secondItem="fWn-1H-Fr7" secondAttribute="height" multiplier="1:1" id="GHS-Nc-yp1"/>
+                                            <constraint firstAttribute="height" constant="90" id="ZeX-Ng-jmR"/>
+                                            <constraint firstAttribute="width" secondItem="j92-Bf-CXr" secondAttribute="height" multiplier="1:1" id="fn0-L5-Sf7"/>
                                         </constraints>
-                                        <attributedString key="attributedText">
-                                            <fragment content="36    ">
-                                                <attributes>
-                                                    <font key="NSFont" size="30" name="SFUIDisplay-Bold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content="MIN">
-                                                <attributes>
-                                                    <font key="NSFont" size="13" name="SFUIDisplay-Light"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtH-BT-x0O">
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfo-ir-y82">
                                         <rect key="frame" x="102.5" y="0.0" width="120" height="120"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtH-BT-x0O">
+                                                <rect key="frame" x="0.0" y="-0.5" width="120" height="120"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="64">
+                                                        <attributes>
+                                                            <font key="NSFont" size="48" name="SFUIDisplay-Bold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="       WPM">
+                                                        <attributes>
+                                                            <font key="NSFont" metaFont="system" size="17"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="jtH-BT-x0O" secondAttribute="height" multiplier="1:1" id="MaI-dG-jys"/>
-                                            <constraint firstAttribute="height" constant="120" id="zk1-it-BAk"/>
+                                            <constraint firstAttribute="width" secondItem="bfo-ir-y82" secondAttribute="height" multiplier="1:1" id="SUs-Mb-dM4"/>
+                                            <constraint firstAttribute="height" constant="120" id="f8R-d5-jpM"/>
                                         </constraints>
-                                        <attributedString key="attributedText">
-                                            <fragment content="64">
-                                                <attributes>
-                                                    <font key="NSFont" size="48" name="SFUIDisplay-Bold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content="       WPM">
-                                                <attributes>
-                                                    <font key="NSFont" metaFont="system" size="17"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G2n-5g-ckl">
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEn-C4-ZZK">
                                         <rect key="frame" x="235" y="15" width="90" height="90"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G2n-5g-ckl">
+                                                <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="98     ">
+                                                        <attributes>
+                                                            <font key="NSFont" size="30" name="SFUIDisplay-Bold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="%">
+                                                        <attributes>
+                                                            <font key="NSFont" size="17" name=".SFNSText"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="G2n-5g-ckl" secondAttribute="height" multiplier="1:1" id="MCQ-Jj-jQP"/>
-                                            <constraint firstAttribute="height" constant="90" id="f48-Et-7zz"/>
+                                            <constraint firstAttribute="height" constant="90" id="65h-ss-sUt"/>
+                                            <constraint firstAttribute="width" secondItem="QEn-C4-ZZK" secondAttribute="height" multiplier="1:1" id="Eyw-9n-8Ol"/>
                                         </constraints>
-                                        <attributedString key="attributedText">
-                                            <fragment content="98     ">
-                                                <attributes>
-                                                    <font key="NSFont" size="30" name="SFUIDisplay-Bold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content="%">
-                                                <attributes>
-                                                    <font key="NSFont" size="17" name=".SFNSText"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="Xbj-de-eJa"/>
@@ -390,6 +408,9 @@
                         <outlet property="quoteLabel" destination="vQa-WJ-VlC" id="xzh-lB-S29"/>
                         <outlet property="timeLabel" destination="fWn-1H-Fr7" id="Ocf-dM-hzI"/>
                         <outlet property="wpmLabel" destination="jtH-BT-x0O" id="7an-j9-2u6"/>
+                        <outletCollection property="labelPlaceholderViews" destination="j92-Bf-CXr" collectionClass="NSMutableArray" id="9G1-cN-zFb"/>
+                        <outletCollection property="labelPlaceholderViews" destination="QEn-C4-ZZK" collectionClass="NSMutableArray" id="upx-r4-Opw"/>
+                        <outletCollection property="labelPlaceholderViews" destination="bfo-ir-y82" collectionClass="NSMutableArray" id="zVs-7L-lOf"/>
                         <segue destination="vGZ-nm-zYa" kind="unwind" identifier="unwindToGameID" unwindAction="unwindToGameViewControllerWithSegue:" id="sIo-qm-c8b"/>
                         <segue destination="vGZ-nm-zYa" kind="unwind" identifier="unwindToMainMenuSegueID" unwindAction="unwindToMainMenuViewControllerWithSegue:" id="5Hm-H6-0On"/>
                     </connections>

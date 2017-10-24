@@ -17,6 +17,7 @@ class ResultsViewController: UIViewController, GKGameCenterControllerDelegate {
     @IBOutlet weak var accuracyLabel: UILabel!
     @IBOutlet weak var progressBarIndicator: UIView!
     @IBOutlet weak var quoteLabel: UILabel!
+    @IBOutlet var labelPlaceholderViews: [UIView]!
     
     var time: Int!
     var wpm: Int!
@@ -31,8 +32,8 @@ class ResultsViewController: UIViewController, GKGameCenterControllerDelegate {
         if let topWPM = defaults.value(forKey: "topWPM") as? Int {
             if wpm > topWPM {
                 defaults.set(wpm, forKey: "topWPM")
-                addScoreAndSubmit(topSpeed: wpm)
             }
+            addScoreAndSubmit(topSpeed: wpm)
         } else {
             defaults.set(wpm, forKey: "topWPM")
             addScoreAndSubmit(topSpeed: wpm)
@@ -60,28 +61,31 @@ class ResultsViewController: UIViewController, GKGameCenterControllerDelegate {
         timeLabel.attributedText = timeText
         let accuracyText = NSMutableAttributedString(string: String(accuracy), attributes: [NSAttributedStringKey.font: numberFont])
         accuracyText.append(NSMutableAttributedString(string: "\n%", attributes: [NSAttributedStringKey.font: subtitleFont]))
+        accuracyLabel.attributedText = accuracyText
         let wpmNumberFont = UIFont.systemFont(ofSize: 50, weight: UIFont.Weight.bold)
         let wpmText = NSMutableAttributedString(string: String(wpm), attributes: [NSAttributedStringKey.font: wpmNumberFont])
         wpmText.append(NSMutableAttributedString(string: "\nWPM", attributes: [NSAttributedStringKey.font: subtitleFont]))
         wpmLabel.attributedText = wpmText
-        accuracyLabel.attributedText = accuracyText
-        timeLabel.layer.cornerRadius = timeLabel.frame.width/2
-        timeLabel.clipsToBounds = true
-        wpmLabel.layer.cornerRadius = wpmLabel.frame.width/2
-        wpmLabel.clipsToBounds = true
-        accuracyLabel.layer.cornerRadius = accuracyLabel.frame.width/2
-        accuracyLabel.clipsToBounds = true
+        
+//        timeLabel.layer.cornerRadius = timeLabel.frame.width/2
+//        timeLabel.clipsToBounds = true
+//        wpmLabel.layer.cornerRadius = wpmLabel.frame.width/2
+//        wpmLabel.clipsToBounds = true
+//        accuracyLabel.layer.cornerRadius = accuracyLabel.frame.width/2
+//        accuracyLabel.clipsToBounds = true
         quoteLabel.text = "\(quote.quoteText!) - \(quote.quoteAuthor!)"
-        addShadow(view: wpmLabel)
+        print(labelPlaceholderViews.count)
+        for placeholder in labelPlaceholderViews {
+            placeholder.layer.cornerRadius = placeholder.bounds.width/2
+            addShadow(view: placeholder)
+        }
     }
     func addShadow(view: UIView) {
         let shadowPath = UIBezierPath(roundedRect: view.bounds, cornerRadius: view.bounds.width/2)
-//        let shadowPath = UIBezierPath(rect: view.bounds)
-//        view.layer.masksToBounds = false
         view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOffset = CGSize(width: 0, height: 0.5)
+        view.layer.shadowOffset = CGSize(width: 0, height: 2)
         view.layer.shadowOpacity = 0.2
-        view.layer.shadowRadius = 10
+        view.layer.shadowRadius = 2
         view.layer.shadowPath = shadowPath.cgPath
     }
     
