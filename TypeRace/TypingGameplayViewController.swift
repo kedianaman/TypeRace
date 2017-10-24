@@ -55,8 +55,9 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
             excerptLabel.text = quote.quoteText
         }
     }
-
     
+    var feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+
     enum InputType {
         case correct
         case incorrect
@@ -71,17 +72,16 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
         inputTextField.delegate = self
         quote = Quotes().getRandomQuote()!
         initialSetup()
-
+        inputTextField.allowsEditingTextAttributes = false
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TypingGameplayViewController.updateCounter), userInfo: nil, repeats: true)
         addShadow(view: excerptLabelContainerView)
         addShadow(view: inputTextContainerView)
         inputTextField.becomeFirstResponder()
-//        inputTextField.isUserInteractionEnabled = false
         // disallow text selection
         
     }
@@ -111,9 +111,10 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
             totalCharactersInput = totalCharactersInput + 1
             // mark as incorrect despite input
             if (incorrectInput == true) {
-                
+                feedbackGenerator.prepare()
+                feedbackGenerator.impactOccurred()
                 if (currentCharacterIndex - incorrectInputIndex > 5) || (currentCharacterIndex == excerptLabel.text!.count) {
-                    AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+//                    AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                     return false
                 }
                 updateExcerptText(ofType: InputType.incorrect)
@@ -129,6 +130,7 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
                 if (currentCharacterIndex == excerptLabel.text!.count - 1) {
                     print("finished")
                     timer.invalidate()
+                    inputTextField.resignFirstResponder()
                     self.performSegue(withIdentifier: "GameToResultsSegueID", sender: nil)
                     return false
                 }
@@ -137,6 +139,8 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
                 // if user enters white space, empty out textfield.
                 if (inputString == " ") {
                     textField.text = ""
+                    inputTextField.autocapitalizationType = .none
+                    inputTextField.reloadInputViews()
                     // Try to make it go back to alphabets here
                     currentWordIndex = currentWordIndex + 1
                     print(words[currentWordIndex])
@@ -149,7 +153,9 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
             // Incorrect input -> Highlight Red and mark incorrect
             } else {
                 updateExcerptText(ofType: InputType.incorrect)
-                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+//                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                feedbackGenerator.prepare()
+                feedbackGenerator.impactOccurred()
                 incorrectInput = true
                 incorrectInputIndex = currentCharacterIndex
                 print("different at index: \(currentCharacterIndex)")
@@ -247,13 +253,13 @@ class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
     }
     
     func addShadow(view: UIView) {
-        let shadowPath = UIBezierPath(rect: view.bounds)
+//        let shadowPath = view.layer.shadowPath
         view.layer.masksToBounds = false
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOffset = CGSize(width: 0, height: 2)
         view.layer.shadowOpacity = 0.2
         view.layer.shadowRadius = 2
-        view.layer.shadowPath = shadowPath.cgPath
+//        view.layer.shadowPath = shadowPath
     }
 }
 

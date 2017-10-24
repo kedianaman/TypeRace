@@ -9,10 +9,13 @@
 import UIKit
 import GameKit
 
-class MainMenuViewController: UIViewController {
+class MainMenuViewController: UIViewController, GKGameCenterControllerDelegate {
+
+    
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var topSpeedLabel: UILabel!
+    @IBOutlet weak var topSpeedContainerView: UIView!
     
     var gameCenterEnabled = Bool()
     var gameCenterLeaderboardID = String()
@@ -25,14 +28,17 @@ class MainMenuViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func leaderboardButtonPressed(_ sender: Any) {
+        showLeaderboardViewController()
+    }
     func initialSetup() {
         self.view.backgroundColor = UIColor.race_bgGreyColor()
         let typeFont = UIFont.systemFont(ofSize: 50, weight: UIFont.Weight.light)
         let raceFont = UIFont.systemFont(ofSize: 50, weight: UIFont.Weight.bold)
-        let titleText = NSMutableAttributedString(string: "Quick", attributes: [NSAttributedStringKey.font: typeFont])
-        titleText.append(NSMutableAttributedString(string: "T", attributes: [NSAttributedStringKey.font: raceFont, NSAttributedStringKey.foregroundColor: UIColor.race_blueColor()]))
-        titleText.append(NSMutableAttributedString(string: "Y", attributes: [NSAttributedStringKey.font: raceFont, NSAttributedStringKey.foregroundColor: UIColor.race_pinkColor()]))
-        titleText.append(NSMutableAttributedString(string: "P", attributes: [NSAttributedStringKey.font: raceFont, NSAttributedStringKey.foregroundColor: UIColor.race_greenColor()]))
+        let titleText = NSMutableAttributedString(string: "Type", attributes: [NSAttributedStringKey.font: typeFont])
+        titleText.append(NSMutableAttributedString(string: "R", attributes: [NSAttributedStringKey.font: raceFont, NSAttributedStringKey.foregroundColor: UIColor.race_blueColor()]))
+        titleText.append(NSMutableAttributedString(string: "A", attributes: [NSAttributedStringKey.font: raceFont, NSAttributedStringKey.foregroundColor: UIColor.race_pinkColor()]))
+        titleText.append(NSMutableAttributedString(string: "C", attributes: [NSAttributedStringKey.font: raceFont, NSAttributedStringKey.foregroundColor: UIColor.race_greenColor()]))
         titleText.append(NSMutableAttributedString(string: "E", attributes: [NSAttributedStringKey.font: raceFont, NSAttributedStringKey.foregroundColor: UIColor.race_orangeColor()]))
         titleLabel.attributedText = titleText
         var topSpeed = 0;
@@ -42,6 +48,8 @@ class MainMenuViewController: UIViewController {
         }
         topSpeedLabel.clipsToBounds = true
         topSpeedLabel.layer.cornerRadius = topSpeedLabel.frame.width/2
+        topSpeedContainerView.layer.cornerRadius = topSpeedContainerView.frame.width/2
+        addShadow(view: topSpeedContainerView)
         let numberFont = UIFont.systemFont(ofSize: 70, weight: UIFont.Weight.bold)
         let subtitleFont = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.light)
         let topSpeedTitle = NSMutableAttributedString(string: String(topSpeed), attributes: [NSAttributedStringKey.font: numberFont])
@@ -59,7 +67,8 @@ class MainMenuViewController: UIViewController {
             topSpeedLabel.attributedText = topSpeedTitle
         }
     }
-    
+  
+    // MARK: dGame Center
     func authenticateLocalPlayer() {
         let localPlayer: GKLocalPlayer = GKLocalPlayer.localPlayer()
         
@@ -81,6 +90,28 @@ class MainMenuViewController: UIViewController {
                 print(error!)
             }
         }
+    }
+    
+    func showLeaderboardViewController() {
+        let gameCenterViewController = GKGameCenterViewController()
+        gameCenterViewController.gameCenterDelegate = self
+        gameCenterViewController.viewState = .leaderboards
+        gameCenterViewController.leaderboardIdentifier = leaderboardID
+        present(gameCenterViewController, animated: true, completion: nil)
+    }
+    
+    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func addShadow(view: UIView) {
+        let shadowPath = UIBezierPath(roundedRect: view.bounds, cornerRadius: view.frame.width/2)
+        view.layer.masksToBounds = false
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 2)
+        view.layer.shadowOpacity = 0.2
+        view.layer.shadowRadius = 2
+        view.layer.shadowPath = shadowPath.cgPath
     }
     
 }
