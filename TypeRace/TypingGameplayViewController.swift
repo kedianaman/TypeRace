@@ -8,8 +8,9 @@
 
 import UIKit
 import AudioToolbox
+import GameKit
 
-class TypingGameplayViewController: UIViewController, UITextFieldDelegate{
+class TypingGameplayViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: IB Outlets
 

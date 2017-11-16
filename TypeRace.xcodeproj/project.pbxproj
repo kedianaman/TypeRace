@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED0E49531FA2CEC50014AD8E /* GCHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0E49521FA2CEC50014AD8E /* GCHelper.swift */; };
 		ED10610B1F934CBD00F44A2B /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED10610A1F934CBD00F44A2B /* Quotes.swift */; };
 		ED525ECD1F9946E4004E4B7B /* TypingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED525ECC1F9946E4004E4B7B /* TypingGame.swift */; };
 		ED6CFEB11F943D8300D22641 /* quotes.json in Resources */ = {isa = PBXBuildFile; fileRef = ED6CFEB01F94389D00D22641 /* quotes.json */; };
 		ED7432B51F948A22007F977F /* samplequotes.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC3A4EC1F9489CA0021C867 /* samplequotes.json */; };
 		ED7432B91F949DFB007F977F /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7432B81F949DFB007F977F /* ResultsViewController.swift */; };
 		ED786DAD1F9192D800AB345F /* TypeRaceColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED786DAC1F9192D800AB345F /* TypeRaceColors.swift */; };
+		ED7C62BB1FA3041200291664 /* MultiplayerGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7C62BA1FA3041200291664 /* MultiplayerGameViewController.swift */; };
 		EDB032681F8EE4D100C07D53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB032671F8EE4D100C07D53 /* AppDelegate.swift */; };
 		EDB0326A1F8EE4D100C07D53 /* TypingGameplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB032691F8EE4D100C07D53 /* TypingGameplayViewController.swift */; };
 		EDB0326D1F8EE4D100C07D53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB0326B1F8EE4D100C07D53 /* Main.storyboard */; };
@@ -43,12 +45,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED0E49521FA2CEC50014AD8E /* GCHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCHelper.swift; sourceTree = "<group>"; };
 		ED10610A1F934CBD00F44A2B /* Quotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
 		ED525ECC1F9946E4004E4B7B /* TypingGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingGame.swift; sourceTree = "<group>"; };
 		ED525ECE1F994B03004E4B7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED6CFEB01F94389D00D22641 /* quotes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = quotes.json; sourceTree = "<group>"; };
 		ED7432B81F949DFB007F977F /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		ED786DAC1F9192D800AB345F /* TypeRaceColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeRaceColors.swift; sourceTree = "<group>"; };
+		ED7C62BA1FA3041200291664 /* MultiplayerGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerGameViewController.swift; sourceTree = "<group>"; };
 		EDB032641F8EE4D100C07D53 /* TypeRace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TypeRace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDB032671F8EE4D100C07D53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDB032691F8EE4D100C07D53 /* TypingGameplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingGameplayViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 		ED7432B61F94984C007F977F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ED0E49521FA2CEC50014AD8E /* GCHelper.swift */,
 				ED10610A1F934CBD00F44A2B /* Quotes.swift */,
 				ED525ECC1F9946E4004E4B7B /* TypingGame.swift */,
 				EDE5E0011F9AB248007DEAB7 /* GameCenterManager.swift */,
@@ -143,6 +148,7 @@
 				EDC311D01F994EB100275B2F /* MainMenuViewController.swift */,
 				EDB032691F8EE4D100C07D53 /* TypingGameplayViewController.swift */,
 				ED7432B81F949DFB007F977F /* ResultsViewController.swift */,
+				ED7C62BA1FA3041200291664 /* MultiplayerGameViewController.swift */,
 				ED786DAC1F9192D800AB345F /* TypeRaceColors.swift */,
 				ED7432B61F94984C007F977F /* Model */,
 				ED525ECE1F994B03004E4B7B /* Assets.xcassets */,
@@ -321,9 +327,11 @@
 				EDE5E0021F9AB248007DEAB7 /* GameCenterManager.swift in Sources */,
 				ED10610B1F934CBD00F44A2B /* Quotes.swift in Sources */,
 				EDB0326A1F8EE4D100C07D53 /* TypingGameplayViewController.swift in Sources */,
+				ED7C62BB1FA3041200291664 /* MultiplayerGameViewController.swift in Sources */,
 				ED525ECD1F9946E4004E4B7B /* TypingGame.swift in Sources */,
 				ED786DAD1F9192D800AB345F /* TypeRaceColors.swift in Sources */,
 				EDC311D11F994EB100275B2F /* MainMenuViewController.swift in Sources */,
+				ED0E49531FA2CEC50014AD8E /* GCHelper.swift in Sources */,
 				ED7432B91F949DFB007F977F /* ResultsViewController.swift in Sources */,
 				EDB032681F8EE4D100C07D53 /* AppDelegate.swift in Sources */,
 			);
@@ -498,7 +506,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Naman.TypeRace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -513,7 +521,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Naman.TypeRace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

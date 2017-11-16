@@ -59,14 +59,17 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilZ-Qz-fdS">
-                                        <rect key="frame" x="0.0" y="77" width="263" height="57.5"/>
+                                        <rect key="frame" x="0.5" y="77" width="262" height="57.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ilZ-Qz-fdS" secondAttribute="height" multiplier="550:120" id="SEU-Ij-pKH"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="MultiplayerMenuButton"/>
+                                        <connections>
+                                            <segue destination="Wlg-iT-4LT" kind="show" id="syn-LM-aKU"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2N-Qe-Kwr">
-                                        <rect key="frame" x="0.0" y="154.5" width="263" height="57.5"/>
+                                        <rect key="frame" x="0.5" y="154.5" width="262" height="57.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="f2N-Qe-Kwr" secondAttribute="height" multiplier="550:120" id="g1e-Xa-3AJ"/>
                                         </constraints>
@@ -219,6 +222,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--Multiplayer Game View Controller-->
+        <scene sceneID="cP4-du-zpb">
+            <objects>
+                <viewController id="Wlg-iT-4LT" customClass="MultiplayerGameViewController" customModule="TypeRace" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9oc-fU-cbh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="wRQ-pm-7bY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rQg-E1-SSH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="281" y="924"/>
         </scene>
         <!--Results View Controller-->
         <scene sceneID="xRQ-DM-Mn5">

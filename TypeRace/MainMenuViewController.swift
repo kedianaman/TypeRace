@@ -10,8 +10,6 @@ import UIKit
 import GameKit
 
 class MainMenuViewController: UIViewController, GKGameCenterControllerDelegate {
-
-    
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var topSpeedLabel: UILabel!
@@ -25,7 +23,6 @@ class MainMenuViewController: UIViewController, GKGameCenterControllerDelegate {
         super.viewDidLoad()
         initialSetup()
         authenticateLocalPlayer()
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func leaderboardButtonPressed(_ sender: Any) {
